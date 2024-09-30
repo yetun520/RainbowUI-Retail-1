@@ -1,0 +1,69 @@
+## Interface: 110002
+## Title: TL;DR Missions
+## Version: 11.0-005
+## Notes: Automates sending out Covenant Missions
+## Author: Teelo
+## Dependencies: Blizzard_GarrisonUI
+## SavedVariablesPerCharacter: TLDRMissionsLogging
+## SavedVariables: TLDRMissionsProfiles, TLDRMissionsCache, TLDRMissionsWODProfiles
+## X-Curse-Project-ID: 602487
+## IconTexture: Interface\Icons\Spell_AnimaBastion_Orb
+## LoadOnDemand: 1
+## LoadWith: Blizzard_GarrisonUI
+
+main.lua
+
+libs\LibStub-Isolated\LibStub.lua
+
+libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
+
+libs\AceAddon-3.0\AceAddon-3.0.xml
+libs\AceDB-3.0\AceDB-3.0.xml
+libs\AceDBOptions-3.0\AceDBOptions-3.0.xml
+libs\AceConsole-3.0\AceConsole-3.0.xml
+libs\AceGUI-3.0\AceGUI-3.0.xml
+libs\AceConfig-3.0\AceConfig-3.0.xml
+
+libs\AceLocale-3.0\AceLocale-3.0.xml
+locales\dede.lua
+locales\enus.lua
+locales\frfr.lua
+locales\kokr.lua
+locales\ruru.lua
+locales\zhtw.lua
+locales\zhcn.lua
+
+libs\AceEvent-3.0\AceEvent-3.0.xml
+
+libs\LibStub\LibStub.lua
+libs\LibUIDropDownMenu\LibUIDropDownMenu.xml
+
+enums.lua
+events.lua
+bindings.lua
+publicAPI.lua
+
+Draenor\gui.lua
+Draenor\guih.lua
+Draenor\profiles.lua
+
+Shadowlands\caching.lua
+Shadowlands\combinations.lua
+Shadowlands\gui.lua
+Shadowlands\guihandlers.lua
+Shadowlands\logging.lua
+Shadowlands\matherrors.lua
+Shadowlands\missions.lua
+Shadowlands\profiles.lua
+Shadowlands\simulation.lua
+Shadowlands\spellsdb.lua
+Shadowlands\targetting.lua
+Shadowlands\workhandler.lua
+
+Shadowlands\followerlist.xml
+Shadowlands\followerlist.lua
+Shadowlands\torghast-farm.lua
+
+ResultCache\index.xml
+
+
