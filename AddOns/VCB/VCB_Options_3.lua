@@ -8,9 +8,11 @@ vcbOptions3Box3.TitleTxt:SetText("目前 & 總共施法時間")
 vcbOptions3Box4.TitleTxt:SetText("總共施法時間")
 vcbOptions3Box5.TitleTxt:SetText("法術名稱 & 施法條顏色")
 -- positioning the boxes --
-for i = 1, 5, 1 do
-	_G["vcbOptions3Box"..i]:SetPoint("TOP", _G["vcbOptions3Box"..i-1], "BOTTOM", 0, 0)
-end
+vcbOptions3Box1:SetPoint("TOPLEFT", vcbOptions3Box0, "BOTTOMLEFT", 0, 0)
+vcbOptions3Box2:SetPoint("TOPRIGHT", vcbOptions3Box0, "BOTTOMRIGHT", 0, 0)
+vcbOptions3Box3:SetPoint("TOPLEFT", vcbOptions3Box1, "BOTTOMLEFT", 0, 0)
+vcbOptions3Box4:SetPoint("TOPRIGHT", vcbOptions3Box2, "BOTTOMRIGHT", 0, 0)
+vcbOptions3Box5:SetPoint("TOP", vcbOptions3Box4, "BOTTOM", 0, 0)
 -- fuction for Available --
 local function vcbAvailable()
 	vcbOptions3Box1CheckButton1:SetChecked(true)
@@ -559,10 +561,10 @@ vcbOptions3:HookScript("OnShow", function(self)
 	if vcbOptions1:IsShown() then vcbOptions1:Hide() end
 	if vcbOptions2:IsShown() then vcbOptions2:Hide() end
 	if vcbOptions4:IsShown() then vcbOptions4:Hide() end
-	vcbOptions00Tab1.Text:SetTextColor(vcbDeafultColor:GetRGB())
-	vcbOptions00Tab2.Text:SetTextColor(vcbDeafultColor:GetRGB())
+	vcbOptions00Tab1.Text:SetTextColor(vcbMainColor:GetRGB())
+	vcbOptions00Tab2.Text:SetTextColor(vcbMainColor:GetRGB())
 	vcbOptions00Tab3.Text:SetTextColor(vcbHighColor:GetRGB())
-	vcbOptions00Tab4.Text:SetTextColor(vcbDeafultColor:GetRGB())
+	vcbOptions00Tab4.Text:SetTextColor(vcbMainColor:GetRGB())
 end)
 -- Hiding the panel --
 vcbOptions3:SetScript("OnHide", function(self)

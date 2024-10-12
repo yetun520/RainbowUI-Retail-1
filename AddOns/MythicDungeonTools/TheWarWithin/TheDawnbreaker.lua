@@ -1,3 +1,4 @@
+local addonName = ...
 local MDT = MDT
 local L = MDT.L
 
@@ -5,14 +6,14 @@ local dungeonIndex = 111
 MDT.dungeonList[dungeonIndex] = L["The Dawnbreaker"]
 MDT.mapInfo[dungeonIndex] = {}
 
-local zones = { 2215, 2215 } -- TODO remove 2215 WHEN DAWNBREAKER IS GONE FROM ROTATION
+local zones = { 2215, 2215, 2359 } -- TODO remove 2215 WHEN DAWNBREAKER IS GONE FROM ROTATION
 for _, zone in ipairs(zones) do
   MDT.zoneIdToDungeonIdx[zone] = dungeonIndex
 end
 
 MDT.dungeonMaps[dungeonIndex] = {
   [0] = "",
-  [1] = { customTextures = "Dawnbreaker" }
+  [1] = { customTextures = 'Interface\\AddOns\\'..addonName..'\\TheWarWithin\\Textures\\Dawnbreaker' }
 }
 
 MDT.dungeonSubLevels[dungeonIndex] = {
@@ -21,7 +22,16 @@ MDT.dungeonSubLevels[dungeonIndex] = {
 
 MDT.dungeonTotalCount[dungeonIndex] = { normal = 460, teeming = 1000, teemingEnabled = true }
 
-MDT.mapPOIs[dungeonIndex] = {}
+MDT.mapPOIs[dungeonIndex] = {
+  [1] = {
+    [1] = {
+      ["template"] = "MapLinkPinTemplate",
+      ["type"] = "dungeonEntrance",
+      ["x"] = 594.33722436621,
+      ["y"] = -518.43239200431,
+    },
+  },
+};
 
 MDT.dungeonEnemies[dungeonIndex] = {
   [1] = {
@@ -218,6 +228,7 @@ MDT.dungeonEnemies[dungeonIndex] = {
     ["count"] = 12,
     ["health"] = 33815270,
     ["scale"] = 1.4,
+    ["stealthDetect"] = true,
     ["displayId"] = 115526,
     ["creatureType"] = "Humanoid",
     ["level"] = 80,
@@ -256,6 +267,7 @@ MDT.dungeonEnemies[dungeonIndex] = {
     ["count"] = 12,
     ["health"] = 33815270,
     ["scale"] = 1.4,
+    ["stealthDetect"] = true,
     ["displayId"] = 115535,
     ["creatureType"] = "Humanoid",
     ["level"] = 80,
@@ -291,6 +303,7 @@ MDT.dungeonEnemies[dungeonIndex] = {
     ["count"] = 12,
     ["health"] = 39782670,
     ["scale"] = 1.4,
+    ["stealthDetect"] = true,
     ["displayId"] = 117315,
     ["creatureType"] = "Humanoid",
     ["level"] = 80,
@@ -859,6 +872,7 @@ MDT.dungeonEnemies[dungeonIndex] = {
     ["count"] = 16,
     ["health"] = 27847869,
     ["scale"] = 1.4,
+    ["stealthDetect"] = true,
     ["displayId"] = 117518,
     ["creatureType"] = "Elemental",
     ["level"] = 80,
@@ -976,6 +990,7 @@ MDT.dungeonEnemies[dungeonIndex] = {
     ["count"] = 12,
     ["health"] = 32754194,
     ["scale"] = 1.8,
+    ["stealthDetect"] = true,
     ["displayId"] = 116834,
     ["creatureType"] = "Humanoid",
     ["level"] = 80,
@@ -1030,6 +1045,7 @@ MDT.dungeonEnemies[dungeonIndex] = {
     ["count"] = 10,
     ["health"] = 33815270,
     ["scale"] = 1.3,
+    ["stealthDetect"] = true,
     ["displayId"] = 115534,
     ["creatureType"] = "Humanoid",
     ["level"] = 80,
@@ -1214,6 +1230,7 @@ MDT.dungeonEnemies[dungeonIndex] = {
     ["count"] = 25,
     ["health"] = 56690306,
     ["scale"] = 3,
+    ["stealthDetect"] = true,
     ["displayId"] = 115760,
     ["creatureType"] = "Humanoid",
     ["level"] = 80,
@@ -1245,6 +1262,7 @@ MDT.dungeonEnemies[dungeonIndex] = {
     ["count"] = 25,
     ["health"] = 53706605,
     ["scale"] = 3,
+    ["stealthDetect"] = true,
     ["displayId"] = 115759,
     ["creatureType"] = "Humanoid",
     ["level"] = 80,
@@ -1280,6 +1298,7 @@ MDT.dungeonEnemies[dungeonIndex] = {
     ["count"] = 25,
     ["health"] = 65641406,
     ["scale"] = 3,
+    ["stealthDetect"] = true,
     ["displayId"] = 119262,
     ["creatureType"] = "Humanoid",
     ["level"] = 80,
@@ -1313,6 +1332,7 @@ MDT.dungeonEnemies[dungeonIndex] = {
     ["count"] = 30,
     ["health"] = 55695738,
     ["scale"] = 3,
+    ["stealthDetect"] = true,
     ["displayId"] = 120116,
     ["creatureType"] = "Humanoid",
     ["level"] = 80,

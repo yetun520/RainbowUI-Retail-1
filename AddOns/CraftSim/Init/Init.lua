@@ -214,7 +214,11 @@ function CraftSim.INIT:InitCraftRecipeHooks()
 				isRecraft = CraftSim.INIT.currentRecipeData.isRecraft
 			end
 			-- this means recraft and work order stuff is important
-			recipeData = CraftSim.RecipeData(onCraftData.recipeID, isRecraft, onCraftData.isOrder)
+			recipeData = CraftSim.RecipeData({
+				recipeID = onCraftData.recipeID,
+				isWorkOrder = onCraftData.isOrder,
+				isRecraft = isRecraft,
+			})
 
 			recipeData:SetAllReagentsBySchematicForm()
 			recipeData:SetConcentrationBySchematicForm()
@@ -222,7 +226,11 @@ function CraftSim.INIT:InitCraftRecipeHooks()
 		else
 			print("api was called via craftsim")
 			-- started via craftsim craft queue
-			recipeData = CraftSim.RecipeData(onCraftData.recipeID, isRecraft, onCraftData.isOrder)
+			recipeData = CraftSim.RecipeData({
+				recipeID = onCraftData.recipeID,
+				isWorkOrder = onCraftData.isOrder,
+				isRecraft = isRecraft,
+			})
 			recipeData:SetReagentsByCraftingReagentInfoTbl(onCraftData.craftingReagentInfoTbl)
 			recipeData:SetNonQualityReagentsMax()
 		end
@@ -499,6 +507,11 @@ function CraftSim.INIT:HideAllModules(keepControlPanel)
 	CraftSim.SIMULATION_MODE.UI.NO_WORKORDER.toggleButton:Hide()
 	CraftSim.EXPLANATIONS.frame:Hide()
 	CraftSim.STATISTICS.UI:SetVisible(false)
+
+	CraftSim.CRAFTQ.queueRecipeButton:Hide()
+	CraftSim.CRAFTQ.queueRecipeButtonWO:Hide()
+	CraftSim.CRAFTQ.queueRecipeButtonOptions:Hide()
+	CraftSim.CRAFTQ.queueRecipeButtonOptionsWO:Hide()
 end
 
 function CraftSim.INIT:TriggerModulesByRecipeType()
@@ -523,6 +536,14 @@ function CraftSim.INIT:TriggerModulesByRecipeType()
 	local craftBuffsFrame = CraftSim.GGUI:GetFrame(CraftSim.INIT.FRAMES, CraftSim.CONST.FRAMES.CRAFT_BUFFS)
 	local craftBuffsFrameWO = CraftSim.GGUI:GetFrame(CraftSim.INIT.FRAMES, CraftSim.CONST.FRAMES.CRAFT_BUFFS_WORKORDER)
 
+	-- pre hide
+	CraftSim.CRAFTQ.queueRecipeButton:Hide()
+	CraftSim.CRAFTQ.queueRecipeButtonWO:Hide()
+	CraftSim.CRAFTQ.queueRecipeButtonOptions:Hide()
+	CraftSim.CRAFTQ.queueRecipeButtonOptionsWO:Hide()
+	CraftSim.SIMULATION_MODE.UI.WORKORDER.toggleButton:Hide()
+	CraftSim.SIMULATION_MODE.UI.NO_WORKORDER.toggleButton:Hide()
+
 	if C_TradeSkillUI.IsNPCCrafting() or C_TradeSkillUI.IsRuneforging() or C_TradeSkillUI.IsTradeSkillLinked() or C_TradeSkillUI.IsTradeSkillGuild() then
 		CraftSim.INIT:HideAllModules()
 		return
@@ -537,7 +558,7 @@ function CraftSim.INIT:TriggerModulesByRecipeType()
 
 	local recipeInfo = C_TradeSkillUI.GetRecipeInfo(CraftSim.INIT.currentRecipeID)
 
-	if not recipeInfo or recipeInfo.isGatheringRecipe then
+	if not recipeInfo or recipeInfo.isGatheringRecipe or recipeInfo.isDummyRecipe then
 		-- hide all modules
 		CraftSim.INIT:HideAllModules(true)
 		return
@@ -569,7 +590,11 @@ function CraftSim.INIT:TriggerModulesByRecipeType()
 		local isRecraft = currentTransaction:GetRecraftAllocation() ~= nil
 		local isWorkOrder = CraftSim.UTIL:IsWorkOrder()
 
-		recipeData = CraftSim.RecipeData(recipeInfo.recipeID, isRecraft, isWorkOrder)
+		recipeData = CraftSim.RecipeData({
+			recipeID = recipeInfo.recipeID,
+			isWorkOrder = isWorkOrder,
+			isRecraft = isRecraft,
+		})
 
 		if recipeData then
 			-- Set Reagents based on visibleFrame and load equipped profession gear set
@@ -623,7 +648,7 @@ function CraftSim.INIT:TriggerModulesByRecipeType()
 	if not recipeData.isCooking and not recipeData.isOldWorldRecipe then
 		showSpecInfo = true
 	end
-	showSimulationMode = not recipeData.isOldWorldRecipe
+	showSimulationMode = not recipeData.isOldWorldRecipe and not recipeData.isBaseRecraftRecipe
 
 	showReagentOptimization = showReagentOptimization and CraftSim.DB.OPTIONS:Get("MODULE_REAGENT_OPTIMIZATION")
 	showAverageProfit = showAverageProfit and CraftSim.DB.OPTIONS:Get("MODULE_AVERAGE_PROFIT")
@@ -657,6 +682,7 @@ function CraftSim.INIT:TriggerModulesByRecipeType()
 
 	-- update CraftQ Display (e.g. cause of profession gear changes)
 	CraftSim.CRAFTQ.UI:UpdateDisplay()
+	CraftSim.CRAFTQ.UI:UpdateAddOpenRecipeButton(recipeData)
 
 	-- Simulation Mode (always update first because it changes recipeData based on simMode inputs)
 	showSimulationMode = (showSimulationMode and recipeData and not recipeData.isSalvageRecipe) or false

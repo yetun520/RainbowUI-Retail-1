@@ -382,6 +382,10 @@ function Details222.StartUp.StartMeUp()
 
 	--check is this is the first run of this version
 	if (Details.is_version_first_run) then
+		if (Details.build_counter == 13096) then
+			Details.mythic_plus.autoclose_time = 90
+		end
+
 		local lowerInstanceId = Details:GetLowerInstanceNumber()
 		if (lowerInstanceId) then
 			lowerInstanceId = Details:GetInstance(lowerInstanceId)
@@ -618,7 +622,7 @@ function Details222.StartUp.StartMeUp()
 
 	if (GetExpansionLevel() == 10) then
 		if (not Details.data_wipes_exp["11"]) then
-			Details:Msg("New expansion detected, clearing data...")
+			Details:Msg(Loc["New expansion detected, clearing data..."])
 			Details:Destroy(Details.encounter_spell_pool or {})
 			Details:Destroy(Details.boss_mods_timers or {})
 			Details:Destroy(Details.spell_school_cache or {})

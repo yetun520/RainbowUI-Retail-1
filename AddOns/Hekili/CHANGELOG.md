@@ -1,6 +1,6 @@
 # Hekili
 
-## [v11.0.2-1.0.18e](https://github.com/Hekili/hekili/tree/v11.0.2-1.0.18e) (2024-09-29)
-[Full Changelog](https://github.com/Hekili/hekili/compare/v11.0.2-1.0.18d...v11.0.2-1.0.18e) [Previous Releases](https://github.com/Hekili/hekili/releases)
+## [v11.0.2-1.0.20a](https://github.com/Hekili/hekili/tree/v11.0.2-1.0.20a) (2024-10-07)
+[Full Changelog](https://github.com/Hekili/hekili/compare/v11.0.2-1.0.20...v11.0.2-1.0.20a) [Previous Releases](https://github.com/Hekili/hekili/releases)
 
-- HoL fix (maybe)  
+- Fix projectile fix  

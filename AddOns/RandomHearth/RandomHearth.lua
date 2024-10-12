@@ -41,7 +41,7 @@ local rhToys = {
 	206195, --Path of the Naaru
 	212337, --Stone of the Hearth
 	210455, --Draenic Hologem
-	228940, --Notorious Thread's Hearthstone (Not a toy)
+	228940, --Notorious Thread's Hearthstone
 }
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -50,6 +50,7 @@ local rhToys = {
 
 local rhList, macroIcon, macroToyName, macroTimer, waitTimer
 local rhCheckButtons, wait, lastRnd, loginMsg = {}, false, 0, "r21"
+local playerClass = select(3,UnitClass("player"))
 local addon, RH = ...
 local L = RH.Localisation
 
@@ -94,7 +95,12 @@ local function updateMacro()
 			end
 			macroText = "#showtooltip " .. macroToyName .. "\n/use " .. macroToyName
 		else
-			macroText = "#showtooltip " .. macroToyName .. "\n/stopcasting\n/click [btn:2]rhB 2;[btn:3]rhB 3;rhB"
+			-- Add cancelform to macro if player is a druid
+			if playerClass == 11 then
+				macroText = "#showtooltip " .. macroToyName .. "\n/cancelform\n/stopcasting\n/click [btn:2]rhB 2;[btn:3]rhB 3;rhB"
+			else
+				macroText = "#showtooltip " .. macroToyName .. "\n/stopcasting\n/click [btn:2]rhB 2;[btn:3]rhB 3;rhB"
+			end
 		end
 		if macroTimer ~= true then
 			macroTimer = true
@@ -149,7 +155,7 @@ local function setRandom()
 				lastRnd = rnd
 			end
 			macroToyName = rhDB.L.tList[rnd]["name"]
-			rhBtn:SetAttribute("item", macroToyName)
+			rhBtn:SetAttribute("toy", macroToyName)
 			if rhDB.iconOverride.name == L["RANDOM"] then
 				macroIcon = rhDB.L.tList[rnd]["icon"]
 			else
@@ -196,11 +202,7 @@ local function listGenerate()
 
 	for i, v in pairs(rhDB.L.tList) do
 		if v["status"] == true then
-			if i == 228940 then
-				if C_Item.IsUsableItem(i) then 
-					table.insert(rhList, i)
-				end
-			elseif PlayerHasToy(i) then
+			if PlayerHasToy(i) then
 				local addToy = true
 				-- Check for Covenant
 				for _, k in pairs(covenantHearths) do
@@ -290,23 +292,23 @@ end
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 rhBtn:RegisterForClicks("AnyDown")
 rhBtn:SetAttribute("pressAndHoldAction", true)
-rhBtn:SetAttribute("type", "item")
-rhBtn:SetAttribute("typerelease", "item")
+rhBtn:SetAttribute("type", "toy")
+rhBtn:SetAttribute("typerelease", "toy")
 rhBtn:SetScript("PreClick", function(self, button, isDown)
 	if not combatCheck() then
 		if (button == "2" or button == "RightButton") and rhDB.settings.dalOpt then
-			rhBtn:SetAttribute("item", rhDB.L.dalaran)
+			rhBtn:SetAttribute("toy", rhDB.L.dalaran)
 		elseif (button == "3" or button == "MiddleButton") and rhDB.settings.garOpt then
-			rhBtn:SetAttribute("item", rhDB.L.garrison)
+			rhBtn:SetAttribute("toy", rhDB.L.garrison)
 		end
 	end
 end)
 rhBtn:SetScript("PostClick", function(self, button)
 	if not combatCheck() then
 		if (button == "2" or button == "RightButton") and rhDB.settings.dalOpt then
-			rhBtn:SetAttribute("item", macroToyName)
+			rhBtn:SetAttribute("toy", macroToyName)
 		elseif (button == "3" or button == "MiddleButton") and rhDB.settings.garOpt then
-			rhBtn:SetAttribute("item", macroToyName)
+			rhBtn:SetAttribute("toy", macroToyName)
 		else
 			setRandom()
 		end

@@ -2564,7 +2564,7 @@ do
                     glow = {
 						type = "group",
 						name = "發光",
-						desc = "暴雪快捷列按鈕發光的偏好設定（不是 SpellFlash）。",
+						desc = "暴雪快捷列按鈕發光的偏好設定 (不是 SpellFlash) 。",
 						order = 6,
 						args = {
 							enabled = {
@@ -3105,12 +3105,20 @@ do
 								order = 1.1
 							},
 
-							break01 = {
-								type = "description",
-								name = " ",
-								order = 1.2,
-								width = "full",
-							},
+                            desaturate = {
+                                type = "toggle",
+                                name = format( "%s 去色", NewFeature ),
+                                desc = "使用技能之前需要等待時，請降低主要圖示的飽和度。",
+                                width = 1.49,
+                                order = 1.15
+                            },
+
+                            break01 = {
+                                type = "description",
+                                name = " ",
+                                order = 1.2,
+                                width = "full",
+                            },
 
 							type = {
 								type = "select",
@@ -5730,9 +5738,9 @@ do
 								cycle = {
 									type = "toggle",
 									name = "建議更改目標 |TInterface\\Addons\\Hekili\\Textures\\Cycle:0|t",
-									desc = "啟用換目標時，可能會顯示一個圖示（|TInterface\\Addons\\Hekili\\Textures\\Cycle:0|t），表示你應該在其他目標上使用技能。\n\n" ..
+									desc = "啟用換目標時，可能會顯示一個圖示 (|TInterface\\Addons\\Hekili\\Textures\\Cycle:0|t) ，表示你應該在其他目標上使用技能。\n\n" ..
 										"這對於一些只想將減益效果施加到另一個目標的專精 (例如御風武僧) 來說效果很好，但對於關注" ..
-										"依據持續時間維護 DOT/減益效果的專精（例如痛苦術士）來說效果可能較差。\n\n此功能將在未來的更新中進行改進。",
+										"依據持續時間維護 DOT/減益效果的專精 (例如痛苦術士) 來說效果可能較差。\n\n此功能將在未來的更新中進行改進。",
 									width = "full",
 									order = 6
 								},
@@ -8698,7 +8706,7 @@ do
 								--[[ aoeDesc = {
 									type = "description",
 									name = function ()
-										return format( "AOE 模式使用主要顯示，並提出建議，就好像你有 |cFFFFD100%d|r 個（或更多）目標。", self.DB.profile.specs[ state.spec.id ].aoe or 3 )
+										return format( "AOE 模式使用主要顯示，並提出建議，就好像你有 |cFFFFD100%d|r 個 (或更多) 目標。", self.DB.profile.specs[ state.spec.id ].aoe or 3 )
 									end,
 									width = 2.85,
 									order = 5.2,
@@ -8736,7 +8744,7 @@ do
 								--[[ dualDesc = {
 									type = "description",
 									name = function ()
-										return format( "雙顯示模式在主要顯示中顯示單體目標建議，在 AOE 顯示中顯示多目標（|cFFFFD100%d|r 個或更多敵人）建議。 兩個顯示始終都會顯示。", self.DB.profile.specs[ state.spec.id ].aoe or 3 )
+										return format( "雙顯示模式在主要顯示中顯示單體目標建議，在 AOE 顯示中顯示多目標 (|cFFFFD100%d|r 個或更多敵人) 建議。 兩個顯示始終都會顯示。", self.DB.profile.specs[ state.spec.id ].aoe or 3 )
 									end,
 									width = 2.85,
 									order = 6.2,
@@ -9909,7 +9917,7 @@ do
                         type = "description",
                         name = function ()
                             return "|cFF00CCFF感謝我們的贊助者!|r\n\n" .. ns.Patrons .. "\n\n" ..
-                                "請參閱 |cFFFFD100問題回報 (快照)|r 連結以取得有關回報錯誤的資訊。\n\n"
+                                "請參閱 |cFFFFD100快照 (問題回報)|r 連結以取得有關回報錯誤的資訊。\n\n"
                         end,
                         fontSize = "medium",
                         order = 6,
@@ -9996,7 +10004,7 @@ do
 							gettingStarted_toggles_info = {
 								type = "description",
 								name = "該插件有幾個可用的 |cFFFFD100開關|r，可幫助你控制在戰鬥中接收到的推薦類型，這些開關可以通過快速鍵進行切換。具體內容請參閱 |cFFFFD100開關|r 部分。\n\n" ..
-									"|cFFFFD100傷害冷卻時間|r：你的主要 DPS 冷卻時間分配給 |cFF00CCFF冷卻時間|r 開關。允許你透過使用按鍵綁定在戰鬥中啟用/停用這些技能，這可以防止插件在某些不希望的情況下推薦給你重要冷卻時間，例如:\n" ..
+									"|cFFFFD100傷害冷卻時間|r: 你的主要 DPS 冷卻時間分配給 |cFF00CCFF冷卻時間|r 開關。允許你透過使用按鍵綁定在戰鬥中啟用/停用這些技能，這可以防止插件在某些不希望的情況下推薦給你重要冷卻時間，例如:\n" ..
 									"· 在地城小怪結束時\n" ..
 									"· 在團隊首領無敵階段期間，或在易傷階段之前\n\n" ..
 									"你可以在 |cFFFFD100技能|r 或 |cFFFFD100裝備和物品|r 部分中新增/刪除這些開關中的技能。\n\n|cFF00CCFF學會在遊戲中使用冷卻時間開關可以大大提高你的 DPS！|r\n\n",
@@ -10021,7 +10029,7 @@ do
 									"· 在 |cFFFFD100技能組|r 部分的每個技能組的 |cFFFFD100圖示|r 選項卡上設定精確的 X/Y 位置。\n\n" ..
 									"預設情況下，插件使用 |cFFFFD100自動|r 模式，根據檢測到的目標數量決定是執行 |cFF00CCFF單目標|r 還是 |cFF00CCFF多目標|r 迴圈。可以在 |cFFFFD100開關|r > |cFFFFD100技能組控制|r 部分中啟用其他類型的技能組。" ..
 									"還有其他類型的技能組可以使用，並可以選擇將它們與你的 |cFF00CCFF主要|r 技能組分開顯示。\n" ..
-									"\n其他技能組：\n· |cFF00CCFF冷卻時間|r\n" .. "· |cFF00CCFF斷法|r\n" .. "· |cFF00CCFF防禦|r\n\n",
+									"\n其他技能組: \n· |cFF00CCFF冷卻時間|r\n" .. "· |cFF00CCFF斷法|r\n" .. "· |cFF00CCFF防禦|r\n\n",
 								order = 3.1,
 								fontSize = "medium",
 								width = "full",
@@ -10059,7 +10067,7 @@ do
 						type = "description",
 						name = "你可以通過 |cFFFFD100問題回報|r 部分中的鏈接提交問題、疑慮和想法。\n\n" ..
 							"如果你不同意插件的建議，|cFFFFD100快照|r 功能允許你捕獲插件在顯示特定建議時做出的決策日誌。" ..
-							"當你提交問題時，請務必截取快照（而不是屏幕截圖！），將文本放在 Pastebin 上，並在提交問題單時包含該鏈接。",
+							"當你提交問題時，請務必截取快照 (而不是屏幕截圖！) ，將文本放在 Pastebin 上，並在提交問題單時包含該鏈接。",
 						order = 5.1,
 						fontSize = "medium",
 						width = "full",
@@ -10113,88 +10121,132 @@ do
 				}
 			},
 
-			snapshots = {
-				type = "group",
-				name = "問題回報 (快照)",
-				desc = "了解如何回報插件的問題，例如不正確的技能建議或錯誤。",
-				order = 86,
-				args = {
-					autoSnapshot = {
-						type = "toggle",
-						name = "自動快照",
-						desc = "勾選時，插件將在無法產生建議時自動建立快照。\n\n" ..
-							"此自動快照在每次戰鬥中只會發生一次。",
-						order = 1,
-						width = "full",
+            snapshots = {
+                type = "group",
+                name = "快照 (問題回報)",
+                desc = "了解如何回報插件的問題，例如不正確的技能建議或錯誤。",
+                order = 86,
+                childGroups = "tab",
+                args = {
+                    prefHeader = {
+                        type = "header",
+                        name = "快照",
+                        order = 1,
+                        width = "full"
+                    },
+                    SnapID = {
+                        type = "select",
+                        name = "選擇快照",
+                        desc = "選擇要匯出的快照。",
+                        values = function( info )
+                            if #ns.snapshots == 0 then
+                                snapshots.snaps[ 0 ] = "尚未產生快照。"
+                            else
+                                snapshots.snaps[ 0 ] = nil
+                                for i, snapshot in ipairs( ns.snapshots ) do
+                                    snapshots.snaps[ i ] = "|cFFFFD100" .. i .. ".|r " .. snapshot.header
+                                end
+                            end
+
+                            return snapshots.snaps
+                        end,
+                        set = function( info, val )
+                            snapshots.selected = val
+                        end,
+                        get = function( info )
+                            return snapshots.selected
+                        end,
+                        order = 3,
+                        width = "full",
+                        disabled = function() return #ns.snapshots == 0 end,
+                    },
+                    autoSnapshot = {
+                        type = "toggle",
+                        name = "自動快照",
+                        desc = "勾選時，插件將在無法產生建議時自動建立快照。\n\n" ..
+                            "此自動快照在每次戰鬥中只會發生一次。",
+                        order = 2,
+                        width = "normal",
+                    },
+                    screenshot = {
+                        type = "toggle",
+                        name = "畫面截圖",
+                        desc = "勾選時，插件將在你手動建立快照時截取畫面截圖。\n\n" ..
+                            "將兩者都提交到你的回報單中，將提供有用的資訊以供調查。",
+                        order = 2.1,
+                        width = "normal",
+                    },
+                    issueReporting_snapshot = {
+                        type = "group",
+                        name = "什麼是快照?",
+                        order = 4,
+                        args = {
+                            issueReporting_snapshot_what = {
+                                type = "description",
+                                name = function()
+                                    return "快照是插件在進行一系列建議時決策過程的記錄。如果你對插件的建議有任何疑問，或不同意插件的建議，" ..
+                                    "查看快照可以幫助你確定導致你看到特定建議的因素。\n\n" ..
+                                    "快照只會捕捉特定時間點的資訊，並根據顯示的圖示解釋當前建議以及所有未來的建議。因此，如果你在插件中顯示 3 個圖示，則快照將解釋當前建議和接下來的 2 個建議。" ..
+                                    "\n\n你也可以使用 |cffffd100暫停|r 按鍵 ( |cffffd100" .. ( Hekili.DB.profile.toggles.pause.key or "未綁定" ) .. "|r ) 來凍結插件的建議。這樣做會凍結插件的建議，讓你將滑鼠指向技能組" ..
+                                    "並查看滿足哪些條件才會顯示這些建議。再次按下暫停即可解除凍結插件。\n\n" ..
+                                    "使用此面板頂部的設定，你可以要求插件在無法提出任何建議時自動為你產生快照。\n\n"
+                                end,
+                                order = 4,
+                                width = "full",
+                                fontSize = "medium",
+                            },
+                        },
+                    },
+
+                    issueReporting_snapshot_how = {
+						type = "group",
+						name = "如何取得快照?",
+						order = 5,
+						args = {
+							issueReporting_snapshot_how_info = {
+								type = "description",
+								name = function()
+									return "|cFFFFD100我應該什麼時候進行快照?|r\n" ..
+										"當問題正在發生時，你應該產生快照。如果你查看推薦並認為「這似乎不對勁」，那就是你應該進行快照的時候。大多數情況下，問題可以在訓練假人身上重現。" ..
+										"\n\n例如，如果問題通常發生在你輸出迴圈的 20 秒後，那麼一個脫戰前的快照並不能幫助開發者或其他社群成員診斷和修復問題。" ..
+										"\n\n|cFFFFD100我該怎麼做?|r\n" ..
+										"你可以透過以下三種方式之一產生快照: \n" ..
+										"- 按下快照快捷鍵: |cffffd100" .. (Hekili.DB.profile.toggles.snapshot.key or "未綁定") .. "|r" ..
+										"\n- 按下暫停快捷鍵: |cffffd100" .. (Hekili.DB.profile.toggles.pause.key or "未綁定") .. "|r" ..
+										"\n- 如果插件無法推薦任何內容，則可以自動產生一個快照，前提是你允許它透過此視窗頂部的核取方塊進行 (|cFFFFD100自動快照|r) " ..
+										"\n\n|cFFFFD100好的，我做了一個，它在哪裡?|r\n" ..
+										"你可以從此視窗頂部附近的下拉清單中選取快照來檢索它，然後從出現的文字方塊中複製它。複製之前，請務必按 |cFFFFD100Ctrl + A|r，以便你能完整複製。它應該非常非常長。"
+								end,
+								order = 4.1,
+								fontSize = "medium",
+								width = "full",
+							},
+						},
 					},
-
-					screenshot = {
-						type = "toggle",
-						name = "畫面截圖",
-						desc = "勾選時，插件將在你手動建立快照時截取畫面截圖。\n\n" ..
-							"將兩者都提交到你的回報單中，將提供有用的資訊以供調查。",
-						order = 2,
-						width = "full",
+					issueReporting_snapshot_next = {
+						type = "group",
+						name = "我現在該怎麼辦?",
+						order = 6,
+						args = {
+							issueReporting_snapshot_next_info = {
+								type = "description",
+								name = "|cFFFFD100現在快照已在你的剪貼簿中，準備好進行貼上|r\n\n" ..
+									"1. 前往 Pastebin 網站: https://pastebin.com/" ..
+									"\n\n2. 使用它建立一個貼上，並將連結發佈到需要的地方 (可能是 Discord 或 Github 問題回報單) ",
+								order = 5.1,
+								fontSize = "medium",
+								width = "full",
+							},
+						},
 					},
-
-					prefHeader = {
-						type = "header",
-						name = "快照 / 故障排除",
-						order = 2.5,
-						width = "full"
-					},
-
-					header = {
-						type = "description",
-						name = function()
-							return "快照是插件針對一組建議的決策過程日誌。 如果你對插件的建議有疑問或不同意，" ..
-							"查看快照可以幫助你識別導致你看到的特定建議的因素。\n\n" ..
-							"快照僅捕捉特定時間點，因此必須在你看到你關心的特定建議時截取快照。 你可以通過" ..
-							"使用開關部分中的 |cffffd100快照|r 綁定 (|cffffd100" .. ( Hekili.DB.profile.toggles.snapshot.key or "未綁定" ) .. "|r) 來產生快照。\n\n" ..
-							"你也可以使用 |cffffd100暫停|r 綁定 (|cffffd100" .. ( Hekili.DB.profile.toggles.pause.key or "未綁定" ) .. "|r) 凍結插件的建議。 這樣做會凍結插件的建議，讓你可以將滑鼠指向技能組" ..
-							"並查看哪些條件滿足了顯示這些建議的條件。 再次按下暫停以解除凍結插件。\n\n" ..
-							"最後，使用此面板底部的設定，你可以要求插件在無法提出任何建議時自動為你產生快照。\n\n"
-						end,
-						fontSize = "medium",
-						order = 10,
-						width = "full",
-					},
-
-					SnapID = {
-						type = "select",
-						name = "選擇項目",
-						desc = "選擇要匯出的快照。",
-						values = function( info )
-							if #ns.snapshots == 0 then
-								snapshots.snaps[ 0 ] = "尚未產生快照。"
-							else
-								snapshots.snaps[ 0 ] = nil
-								for i, snapshot in ipairs( ns.snapshots ) do
-									snapshots.snaps[ i ] = "|cFFFFD100" .. i .. ".|r " .. snapshot.header
-								end
-							end
-
-							return snapshots.snaps
-						end,
-						set = function( info, val )
-							snapshots.selected = val
-						end,
-						get = function( info )
-							return snapshots.selected
-						end,
-						order = 12,
-						width = "full",
-						disabled = function() return #ns.snapshots == 0 end,
-					},
-
 					Snapshot = {
 						type = 'input',
-						name = "快照",
-						desc = "點一下此處並按下 CTRL+A、CTRL+C 以複製快照。\n\n貼上到文字編輯器中以查看或上傳到 Pastebin 以支援回報單。",
+						name = "從此文字方塊中取得你的快照",
+						desc = "點擊此處並按 CTRL+A、CTRL+C 複製快照。\n\n貼上到文字編輯器中以供審查，或上傳到 Pastebin 以支援問題回報單。",
 						order = 20,
-						get = function( info )
-							if snapshots.selected == 0 then return "" end
-							return ns.snapshots[ snapshots.selected ].log
+						get = function(info)
+							 if snapshots.selected == 0 then return "" end
+							return ns.snapshots[snapshots.selected].log
 						end,
 						set = function() end,
 						width = "full",
@@ -10203,20 +10255,21 @@ do
 
 					SnapshotInstructions = {
 						type = "description",
-						name = "點一下快照並按下 CTRL+A、CTRL+C 以選取所有文字並複製到剪貼簿。\n\n"
-							.. "將文字貼上到文字編輯器中以供你自己查看，或上傳到 Pastebin 以連結到 GitHub 上的問題回報。",
+						name = "|cFF00CCFF點擊上面的文字方塊並按 CTRL+A、CTRL+C 選擇所有文字並將其複製到剪貼簿，它應該有數百行之長。|r\n\n",
 						order = 30,
 						width = "full",
+						fontSize = "medium",
 						hidden = function() return snapshots.selected == 0 or #ns.snapshots == 0 end,
 					}
-				}
-			},
-		},
 
-		plugins = {
-			specializations = {},
-		}
-	}
+                },
+            },
+        },
+        plugins = {
+            specializations = {},
+        }
+    }
+
     function Hekili:GetOptions()
         self:EmbedToggleOptions( Options )
 
@@ -10673,12 +10726,12 @@ do
 
                     output = format( "%s\n - |cFFFFD100cycle|r、|cFFFFD100swap|r 或 |cFFFFD100target_swap|r = %s|r (%s)", output, spec.cycle and "|cFF00FF00開啟" or "|cFFFF0000關閉", "推薦換目標" )
 
-                    output = format( "%s\n\n要控制你的開關（|cFFFFD100cooldowns|r、|cFFFFD100covenants|r、|cFFFFD100defensives|r、|cFFFFD100interrupts|r、|cFFFFD100potions|r、|cFFFFD100custom1|r 和 |cFFFFD100custom2|r）:\n" ..
+                    output = format( "%s\n\n要控制你的開關 (|cFFFFD100cooldowns|r、|cFFFFD100covenants|r、|cFFFFD100defensives|r、|cFFFFD100interrupts|r、|cFFFFD100potions|r、|cFFFFD100custom1|r 和 |cFFFFD100custom2|r) :\n" ..
                         " - 啟用冷卻時間:  |cFFFFD100/hek set cooldowns on|r\n" ..
                         " - 停用打斷:  |cFFFFD100/hek set interupts off|r\n" ..
                         " - 開關防禦:  |cFFFFD100/hek set defensives|r", output )
 
-                    output = format( "%s\n\n要控制你的技能組模式 (目前為 |cFFFFD100%s|r):\n - 開關模式:  |cFFFFD100/hek set mode|r\n - 設定模式:  |cFFFFD100/hek set mode aoe|r（或 |cFFFFD100automatic|r、|cFFFFD100single|r、|cFFFFD100dual|r、|cFFFFD100reactive|r)", output, self.DB.profile.toggles.mode.value or "未知" )
+                    output = format( "%s\n\n要控制你的技能組模式 (目前為 |cFFFFD100%s|r):\n - 開關模式:  |cFFFFD100/hek set mode|r\n - 設定模式:  |cFFFFD100/hek set mode aoe|r (或 |cFFFFD100automatic|r、|cFFFFD100single|r、|cFFFFD100dual|r、|cFFFFD100reactive|r)", output, self.DB.profile.toggles.mode.value or "未知" )
 
                     if hasToggle then
                         output = format( "%s\n\n要設定 |cFFFFD100專精開關|r，請使用以下指令:\n" ..
@@ -10726,7 +10779,7 @@ do
                     return
                 end
 
-                -- 兩個或多個參數，我們正在設定（或查詢）。
+                -- 兩個或多個參數，我們正在設定 (或查詢) 。
                 if index == -1 then
                     local to
 
