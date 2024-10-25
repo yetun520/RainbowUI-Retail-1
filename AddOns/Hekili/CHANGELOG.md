@@ -1,6 +1,10 @@
 # Hekili
 
-## [v11.0.2-1.0.20a](https://github.com/Hekili/hekili/tree/v11.0.2-1.0.20a) (2024-10-07)
-[Full Changelog](https://github.com/Hekili/hekili/compare/v11.0.2-1.0.20...v11.0.2-1.0.20a) [Previous Releases](https://github.com/Hekili/hekili/releases)
+## [v11.0.5-1.0.2](https://github.com/Hekili/hekili/tree/v11.0.5-1.0.2) (2024-10-24)
+[Full Changelog](https://github.com/Hekili/hekili/compare/v11.0.5-1.0.1...v11.0.5-1.0.2) [Previous Releases](https://github.com/Hekili/hekili/releases)
 
-- Fix projectile fix  
+- Huntery fixery  
+- Enhancement priority  
+- Make Doom Winds a minor CD instead of major CD  
+- Fix #4044  
+- Fury: No bloodbath during Ravager/Bladestorm w Unhinged  

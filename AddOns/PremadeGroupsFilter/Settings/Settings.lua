@@ -59,6 +59,14 @@ local PGFSettingsTable = {
         visible = true,
     },
     {
+        key = "rioRatingColors",
+        type = "checkbox",
+        title = L["settings.rioRatingColors.title"],
+        tooltip = L["settings.rioRatingColors.tooltip"],
+        image = nil,
+        visible = RaiderIO and true or false,
+    },
+    {
         key = "specIcon",
         type = "checkbox",
         title = L["settings.specIcon.title"],
@@ -110,6 +118,13 @@ local PGFSettingsTable = {
         visible = true,
     },
     {
+        key = "cancelOldestApp",
+        type = "checkbox",
+        title = L["settings.cancelOldestApp.title"],
+        tooltip = L["settings.cancelOldestApp.tooltip"],
+        visible = true,
+    },
+    {
         key = "persistSignUpNote",
         type = "checkbox",
         title = L["settings.persistSignUpNote.title"],
@@ -151,6 +166,7 @@ function PGFSettings:OnLoad()
     ScrollUtil.InitScrollBoxListWithScrollBar(self.ScrollBox, self.ScrollBar, view)
 
     local category, layout = Settings.RegisterCanvasLayoutCategory(self, L["addon.name.long"])
+	category.ID = "PremadeGroupsFilter"
     Settings.RegisterAddOnCategory(category)
     PGF.settingsCategory = category
 end

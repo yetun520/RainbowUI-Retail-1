@@ -42,10 +42,10 @@ local IsHarmfulSpell = C_Spell.IsSpellHarmful or _G.IsHarmfulSpell
 local IsHelpfulSpell = C_Spell.IsSpellHelpful or _G.IsHelpfulSpell
 local IsPressHoldReleaseSpell = C_Spell.IsPressHoldReleaseSpell or _G.IsPressHoldReleaseSpell
 
-local GetNumSpellTabs = C_SpellBook.GetNumSpellBookSkillLines;
+local GetNumSpellTabs = C_SpellBook.GetNumSpellBookSkillLines
 
 local GetSpellTabInfo = function(index)
-    local skillLineInfo = C_SpellBook.GetSpellBookSkillLineInfo(index);
+    local skillLineInfo = C_SpellBook.GetSpellBookSkillLineInfo(index)
     if skillLineInfo then
         return	skillLineInfo.name, 
                 skillLineInfo.iconID, 
@@ -54,7 +54,7 @@ local GetSpellTabInfo = function(index)
                 skillLineInfo.isGuild, 
                 skillLineInfo.offSpecID,
                 skillLineInfo.shouldHide,
-                skillLineInfo.specID;
+                skillLineInfo.specID
     end
 end
 
@@ -63,9 +63,9 @@ local GetSpellInfo = ns.GetUnpackedSpellInfo
 local GetSpellDescription = C_Spell.GetSpellDescription
 
 local GetSpellCharges = function(spellID)
-    local spellChargeInfo = C_Spell.GetSpellCharges(spellID);
+    local spellChargeInfo = C_Spell.GetSpellCharges(spellID)
     if spellChargeInfo then
-        return spellChargeInfo.currentCharges, spellChargeInfo.maxCharges, spellChargeInfo.cooldownStartTime, spellChargeInfo.cooldownDuration, spellChargeInfo.chargeModRate;
+        return spellChargeInfo.currentCharges, spellChargeInfo.maxCharges, spellChargeInfo.cooldownStartTime, spellChargeInfo.cooldownDuration, spellChargeInfo.chargeModRate
     end
 end
 
@@ -978,6 +978,29 @@ do
                         desc = "Siege of Boralus - Bilge Rat Pillager",
                         [454440] = "Stinky Vomit",
                     },
+
+
+                    -- Nerub'ar Palace
+                    [203669] = {
+                        desc = "Nerub'ar Palace - Rasha'nan",
+                        [436996] = "Stalking Shadows"
+                    },
+                    [201792] = {
+                        desc = "Nerub'ar Palace - Nexus-Princess Ky'veza",
+                        [437839] = "Nether Rift",
+                        [436787] = "Regicide",
+                        [436996] = "Stalking Shadows",
+                    },
+                    [201793] = {
+                        desc = "Nerub'ar Palace - The Silken Court",
+                        [438200] = "Poison Bolt",
+                        [441772] = "Void Bolt"
+                    },
+                    [201794] = {
+                        desc = "Nerub'ar Palace - Queen Ansurek",
+                        [451600] = "Expulsion Beam",
+                        [439865] = "Silken Tomb",
+                    },
                 },
 
                 iconStore = {
@@ -1026,7 +1049,8 @@ do
         local option = info[ n ]
 
         if type(val) == 'string' then val = val:trim() end
-        if shareDB[ option ] then shareDB[ option ] = val; return end
+        if shareDB[ option ] then shareDB[ option ] = val
+return end
 
         shareDB.displays[ option ] = val
         shareDB.export = ""
@@ -1717,11 +1741,12 @@ do
 								end,
 							},
 
-							pos = {
-								type = "group",
-								inline = true,
-								name = function( info ) rangeXY( info ); return "位置" end,
-								order = 10,
+                            pos = {
+                                type = "group",
+                                inline = true,
+                                name = function( info ) rangeXY( info )
+return "位置" end,
+                                order = 10,
 
 								args = {
 									--[[
@@ -2312,19 +2337,20 @@ do
 								disabled = function () return data.keybindings.enabled == false end,
 							},
 
-							pos = {
-								type = "group",
-								inline = true,
-								name = function( info ) rangeIcon( info ); return "位置" end,
-								order = 3,
-								args = {
-									anchor = {
-										type = "select",
-										name = '位置',
-										order = 2,
-										width = 1,
-										values = realAnchorPositions
-									},
+                            pos = {
+                                type = "group",
+                                inline = true,
+                                name = function( info ) rangeIcon( info )
+return "位置" end,
+                                order = 3,
+                                args = {
+                                    anchor = {
+                                        type = "select",
+                                        name = '對齊點',
+                                        order = 2,
+                                        width = 1,
+                                        values = realAnchorPositions
+                                    },
 
 									x = {
 										type = "range",
@@ -2860,22 +2886,23 @@ do
 								disabled = function () return data.captions.enabled == false end,
 							},
 
-							position = {
-								type = "group",
-								inline = true,
-								name = function( info ) rangeIcon( info ); return "位置" end,
-								order = 3,
-								args = {
-									anchor = {
-										type = "select",
-										name = '位置',
-										order = 1,
-										width = 1,
-										values = {
-											TOP = '上',
-											BOTTOM = '下',
-										}
-									},
+                            position = {
+                                type = "group",
+                                inline = true,
+                                name = function( info ) rangeIcon( info )
+return "位置" end,
+                                order = 3,
+                                args = {
+                                    anchor = {
+                                        type = "select",
+                                        name = '對齊點',
+                                        order = 1,
+                                        width = 1,
+                                        values = {
+                                            TOP = '上',
+                                            BOTTOM = '下',
+                                        }
+                                    },
 
 									x = {
 										type = "range",
@@ -2958,22 +2985,23 @@ do
 								width = "full",
 							},
 
-							position = {
-								type = "group",
-								inline = true,
-								name = function( info ) rangeIcon( info ); return "文字位置" end,
-								order = 3,
-								args = {
-									anchor = {
-										type = "select",
-										name = '位置',
-										order = 1,
-										width = 1,
-										values = {
-											TOP = '上',
-											BOTTOM = '下',
-										}
-									},
+                            position = {
+                                type = "group",
+                                inline = true,
+                                name = function( info ) rangeIcon( info )
+return "文字位置" end,
+                                order = 3,
+                                args = {
+                                    anchor = {
+                                        type = "select",
+                                        name = '對齊點',
+                                        order = 1,
+                                        width = 1,
+                                        values = {
+                                            TOP = '上',
+                                            BOTTOM = '下',
+                                        }
+                                    },
 
 									x = {
 										type = "range",
@@ -3036,19 +3064,20 @@ do
 								width = "full",
 							},
 
-							pos = {
-								type = "group",
-								inline = true,
-								name = function( info ) rangeIcon( info ); return "位置" end,
-								order = 2,
-								args = {
-									anchor = {
-										type = "select",
-										name = "對齊到",
-										values = realAnchorPositions,
-										order = 1,
-										width = 1,
-									},
+                            pos = {
+                                type = "group",
+                                inline = true,
+                                name = function( info ) rangeIcon( info )
+return "位置" end,
+                                order = 2,
+                                args = {
+                                    anchor = {
+                                        type = "select",
+                                        name = "對齊到",
+                                        values = realAnchorPositions,
+                                        order = 1,
+                                        width = 1,
+                                    },
 
 									x = {
 										type = "range",
@@ -3133,19 +3162,20 @@ do
 								order = 2,
 							},
 
-							pos = {
-								type = "group",
-								inline = true,
-								name = function( info ) rangeIcon( info ); return "位置" end,
-								order = 3,
-								args = {
-									anchor = {
-										type = "select",
-										name = '位置',
-										order = 2,
-										width = 1,
-										values = realAnchorPositions
-									},
+                            pos = {
+                                type = "group",
+                                inline = true,
+                                name = function( info ) rangeIcon( info )
+return "位置" end,
+                                order = 3,
+                                args = {
+                                    anchor = {
+                                        type = "select",
+                                        name = '對齊點',
+                                        order = 2,
+                                        width = 1,
+                                        values = realAnchorPositions
+                                    },
 
 									x = {
 										type = "range",
@@ -3204,19 +3234,20 @@ do
 								disabled = function () return data.indicators.enabled == false end,
 							},
 
-							pos = {
-								type = "group",
-								inline = true,
-								name = function( info ) rangeIcon( info ); return "位置" end,
-								order = 2,
-								args = {
-									anchor = {
-										type = "select",
-										name = "對齊到",
-										values = realAnchorPositions,
-										order = 1,
-										width = 1,
-									},
+                            pos = {
+                                type = "group",
+                                inline = true,
+                                name = function( info ) rangeIcon( info )
+return "位置" end,
+                                order = 2,
+                                args = {
+                                    anchor = {
+                                        type = "select",
+                                        name = "對齊到",
+                                        values = realAnchorPositions,
+                                        order = 1,
+                                        width = 1,
+                                    },
 
 									x = {
 										type = "range",
@@ -3250,208 +3281,209 @@ do
 
 
     function Hekili:EmbedDisplayOptions( db )
-		db = db or self.Options
-		if not db then return end
+        db = db or self.Options
+        if not db then return end
 
-		local section = db.args.displays or {
-			type = "group",
-			name = "技能組",
-			childGroups = "tree",
-			cmdHidden = true,
-			get = 'GetDisplayOption',
-			set = 'SetDisplayOption',
-			order = 30,
+        local section = db.args.displays or {
+            type = "group",
+            name = "技能組",
+            childGroups = "tree",
+            cmdHidden = true,
+            get = 'GetDisplayOption',
+            set = 'SetDisplayOption',
+            order = 30,
 
-			args = {
-				header = {
-					type = "description",
-					name = "Hekili 輸出助手最多可以有五個內建技能組 (以藍色標示)，可以顯示" ..
+            args = {
+                header = {
+                    type = "description",
+                    name = "Hekili 輸出助手最多可以有五個內建技能組 (以藍色標示)，可以顯示" ..
 						"不同種類的建議。插件的建議是依據" ..
 						"優先順序，這些優先順序通常 (但不限於) 依據 SimulationCraft 設定檔，" ..
 						"以便你可以將你的表現與模擬結果進行比較。",
-					fontSize = "medium",
-					width = "full",
-					order = 1,
-				},
+                    fontSize = "medium",
+                    width = "full",
+                    order = 1,
+                },
 
-				displays = {
-					type = "header",
-					name = "技能組",
-					order = 10,
-				},
+                displays = {
+                    type = "header",
+                    name = "技能組",
+                    order = 10,
+                },
 
 
-				nPanelHeader = {
-					type = "header",
-					name = "通知面板",
-					order = 950,
-				},
+                nPanelHeader = {
+                    type = "header",
+                    name = "通知面板",
+                    order = 950,
+                },
 
-				nPanelBtn = {
-					type = "execute",
-					name = "通知面板",
-					desc = "通知面板會在戰鬥中更改或" ..
-						"開關設定時提供簡要的通知。",
-					func = function ()
-						ACD:SelectGroup( "Hekili", "displays", "nPanel" )
-					end,
-					order = 951,
-				},
+                nPanelBtn = {
+                    type = "execute",
+                    name = "通知面板",
+					desc = "通知面板會在設定變更或" ..
+						"在戰鬥中打開時提供簡要的通知。",
+                    func = function ()
+                        ACD:SelectGroup( "Hekili", "displays", "nPanel" )
+                    end,
+                    order = 951,
+                },
 
-				nPanel = {
-					type = "group",
-					name = "|cFF1EFF00通知面板|r",
-					desc = "通知面板會在戰鬥中更改或" ..
-						"開關設定時提供簡要的通知。",
-					order = 952,
-					get = GetNotifOption,
-					set = SetNotifOption,
-					args = {
-						enabled = {
-							type = "toggle",
-							name = "啟用",
-							order = 1,
-							width = "full",
-						},
+                nPanel = {
+                    type = "group",
+                    name = "|cFF1EFF00通知面板|r",
+                    desc = "通知面板會在設定變更或" ..
+						"在戰鬥中打開時提供簡要的通知。",
+                    order = 952,
+                    get = GetNotifOption,
+                    set = SetNotifOption,
+                    args = {
+                        enabled = {
+                            type = "toggle",
+                            name = "啟用",
+                            order = 1,
+                            width = "full",
+                        },
 
-						posRow = {
-							type = "group",
-							name = function( info ) rangeXY( info, true ); return "位置" end,
-							inline = true,
-							order = 2,
-							args = {
-								x = {
-									type = "range",
-									name = "水平位置",
+                        posRow = {
+                            type = "group",
+                            name = function( info ) rangeXY( info, true )
+return "位置" end,
+                            inline = true,
+                            order = 2,
+                            args = {
+                                x = {
+                                    type = "range",
+                                    name = "水平位置",
 									desc = "輸入通知面板的水平位置，" ..
 										"相對於畫面中心。負值將面板向左移動；正值將面板向右移動。",
-									min = -512,
-									max = 512,
-									step = 1,
+                                    min = -512,
+                                    max = 512,
+                                    step = 1,
 
-									width = 1.49,
-									order = 1,
-								},
+                                    width = 1.49,
+                                    order = 1,
+                                },
 
-								y = {
-									type = "range",
-									name = "垂直位置",
+                                y = {
+                                    type = "range",
+                                    name = "垂直位置",
 									desc = "輸入通知面板的垂直位置，" ..
 										"相對於畫面中心。負值將面板向下移動；正值將面板向上移動。",
-									min = -384,
-									max = 384,
-									step = 1,
+                                    min = -384,
+                                    max = 384,
+                                    step = 1,
 
-									width = 1.49,
-									order = 2,
-								},
-							}
-						},
+                                    width = 1.49,
+                                    order = 2,
+                                },
+                            }
+                        },
 
-						sizeRow = {
-							type = "group",
-							name = "大小",
-							inline = true,
-							order = 3,
-							args = {
-								width = {
-									type = "range",
-									name = "寬度",
-									min = 50,
-									max = 1000,
-									step = 1,
+                        sizeRow = {
+                            type = "group",
+                            name = "大小",
+                            inline = true,
+                            order = 3,
+                            args = {
+                                width = {
+                                    type = "range",
+                                    name = "寬度",
+                                    min = 50,
+                                    max = 1000,
+                                    step = 1,
 
-									width = "full",
-									order = 1,
-								},
+                                    width = "full",
+                                    order = 1,
+                                },
 
-								height = {
-									type = "range",
-									name = "高度",
-									min = 20,
-									max = 600,
-									step = 1,
+                                height = {
+                                    type = "range",
+                                    name = "高度",
+                                    min = 20,
+                                    max = 600,
+                                    step = 1,
 
-									width = "full",
-									order = 2,
-								},
-							}
-						},
+                                    width = "full",
+                                    order = 2,
+                                },
+                            }
+                        },
 
-						fontGroup = {
-							type = "group",
-							inline = true,
-							name = "文字",
+                        fontGroup = {
+                            type = "group",
+                            inline = true,
+                            name = "文字",
 
-							order = 5,
-							args = tableCopy( fontElements ),
-						},
-					}
-				},
+                            order = 5,
+                            args = tableCopy( fontElements ),
+                        },
+                    }
+                },
 
-				fontHeader = {
-					type = "header",
-					name = "字體",
-					order = 960,
-				},
+                fontHeader = {
+                    type = "header",
+                    name = "字體",
+                    order = 960,
+                },
 
-				fontWarn = {
-					type = "description",
-					name = "更改以下字體將會修改|cFFFF0000所有|r技能組上的所有文字。\n" ..
-							"要單獨修改一個文字，請選擇技能組 (在左側) 並選擇適當的文字。",
-					order = 960.01,
-				},
+                fontWarn = {
+                    type = "description",
+                    name = "更改以下字體將會修改|cFFFF0000所有|r技能組上的所有文字。\n" ..
+							"要單獨修改一個文字，請 (從左側) 選擇技能組並選擇適當的文字。",
+                    order = 960.01,
+                },
 
-				font = {
-					type = "select",
-					name = "字體",
-					order = 960.1,
-					width = 1.5,
-					dialogControl = 'LSM30_Font',
-					values = LSM:HashTable("font"),
-					get = function( info )
-						-- 顯示來自主要、鍵盤綁定的資訊。
-						return Hekili.DB.profile.displays.Primary.keybindings.font
-					end,
-					set = function( info, val )
-						-- 設定所有技能組中的所有字體。
-						for _, display in pairs( Hekili.DB.profile.displays ) do
-							for _, data in pairs( display ) do
-								if type( data ) == "table" and data.font then data.font = val end
-							end
-						end
-						QueueRebuildUI()
-					end,
-				},
+                font = {
+                    type = "select",
+                    name = "字體",
+                    order = 960.1,
+                    width = 1.5,
+                    dialogControl = 'LSM30_Font',
+                    values = LSM:HashTable("font"),
+                    get = function( info )
+                        -- Display the information from Primary, Keybinds.
+                        return Hekili.DB.profile.displays.Primary.keybindings.font
+                    end,
+                    set = function( info, val )
+                        -- Set all fonts in all displays.
+                        for _, display in pairs( Hekili.DB.profile.displays ) do
+                            for _, data in pairs( display ) do
+                                if type( data ) == "table" and data.font then data.font = val end
+                            end
+                        end
+                        QueueRebuildUI()
+                    end,
+                },
 
-				fontSize = {
-					type = "range",
-					name = "大小",
-					order = 960.2,
-					min = 8,
-					max = 64,
-					step = 1,
-					get = function( info )
-						-- 顯示來自主要、鍵盤綁定的資訊。
-						return Hekili.DB.profile.displays.Primary.keybindings.fontSize
-					end,
-					set = function( info, val )
-						-- 設定所有技能組中的所有字體。
-						for _, display in pairs( Hekili.DB.profile.displays ) do
-							for _, data in pairs( display ) do
-								if type( data ) == "table" and data.fontSize then data.fontSize = val end
-							end
-						end
-						QueueRebuildUI()
-					end,
-					width = 1.5,
-				},
+                fontSize = {
+                    type = "range",
+                    name = "大小",
+                    order = 960.2,
+                    min = 8,
+                    max = 64,
+                    step = 1,
+                    get = function( info )
+                        -- Display the information from Primary, Keybinds.
+                        return Hekili.DB.profile.displays.Primary.keybindings.fontSize
+                    end,
+                    set = function( info, val )
+                        -- Set all fonts in all displays.
+                        for _, display in pairs( Hekili.DB.profile.displays ) do
+                            for _, data in pairs( display ) do
+                                if type( data ) == "table" and data.fontSize then data.fontSize = val end
+                            end
+                        end
+                        QueueRebuildUI()
+                    end,
+                    width = 1.5,
+                },
 
-				fontStyle = {
-					type = "select",
-					name = "樣式",
-					order = 960.3,
-					values = {
+                fontStyle = {
+                    type = "select",
+                    name = "樣式",
+                    order = 960.3,
+                    values = {
 						["MONOCHROME"] = "無消除鋸齒",
 						["MONOCHROME,OUTLINE"] = "無消除鋸齒、邊框",
 						["MONOCHROME,THICKOUTLINE"] = "無消除鋸齒、粗邊框",
@@ -3459,476 +3491,477 @@ do
 						["OUTLINE"] = "邊框",
 						["THICKOUTLINE"] = "粗邊框"
 					},
-					get = function( info )
-						-- 顯示來自主要、鍵盤綁定的資訊。
-						return Hekili.DB.profile.displays.Primary.keybindings.fontStyle
-					end,
-					set = function( info, val )
-						-- 設定所有技能組中的所有字體。
-						for _, display in pairs( Hekili.DB.profile.displays ) do
-							for _, data in pairs( display ) do
-								if type( data ) == "table" and data.fontStyle then data.fontStyle = val end
-							end
-						end
-						QueueRebuildUI()
-					end,
-					width = 1.5,
-				},
+                    get = function( info )
+                        -- Display the information from Primary, Keybinds.
+                        return Hekili.DB.profile.displays.Primary.keybindings.fontStyle
+                    end,
+                    set = function( info, val )
+                        -- Set all fonts in all displays.
+                        for _, display in pairs( Hekili.DB.profile.displays ) do
+                            for _, data in pairs( display ) do
+                                if type( data ) == "table" and data.fontStyle then data.fontStyle = val end
+                            end
+                        end
+                        QueueRebuildUI()
+                    end,
+                    width = 1.5,
+                },
 
-				color = {
-					type = "color",
-					name = "顏色",
-					order = 960.4,
-					get = function( info )
-						return unpack( Hekili.DB.profile.displays.Primary.keybindings.color )
-					end,
-					set = function( info, ... )
-						for name, display in pairs( Hekili.DB.profile.displays ) do
-							for _, data in pairs( display ) do
-								if type( data ) == "table" and data.color then data.color = { ... } end
-							end
-						end
-						QueueRebuildUI()
-					end,
-					width = 1.5
-				},
+                color = {
+                    type = "color",
+                    name = "顏色",
+                    order = 960.4,
+                    get = function( info )
+                        return unpack( Hekili.DB.profile.displays.Primary.keybindings.color )
+                    end,
+                    set = function( info, ... )
+                        for name, display in pairs( Hekili.DB.profile.displays ) do
+                            for _, data in pairs( display ) do
+                                if type( data ) == "table" and data.color then data.color = { ... } end
+                            end
+                        end
+                        QueueRebuildUI()
+                    end,
+                    width = 1.5
+                },
 
-				shareHeader = {
-					type = "header",
-					name = "分享",
-					order = 996,
-				},
+                shareHeader = {
+                    type = "header",
+                    name = "分享",
+                    order = 996,
+                },
 
-				shareBtn = {
-					type = "execute",
-					name = "分享樣式",
+                shareBtn = {
+                    type = "execute",
+                    name = "分享樣式",
 					desc = "可以透過這些匯出字串將你的技能組樣式與其他插件使用者分享。\n\n" ..
 						"你也可以在這裡匯入他人分享的匯出字串。",
-					func = function ()
-						ACD:SelectGroup( "Hekili", "displays", "shareDisplays" )
-					end,
-					order = 998,
-				},
+                    func = function ()
+                        ACD:SelectGroup( "Hekili", "displays", "shareDisplays" )
+                    end,
+                    order = 998,
+                },
 
-				shareDisplays = {
-					type = "group",
-					name = "|cFF1EFF00分享樣式|r",
+                shareDisplays = {
+                    type = "group",
+                    name = "|cFF1EFF00分享樣式|r",
 					desc = "可以透過這些匯出字串將你的技能組樣式與其他插件使用者分享。\n\n" ..
 						"你也可以在這裡匯入他人分享的匯出字串。",
-					childGroups = "tab",
-					get = 'GetDisplayShareOption',
-					set = 'SetDisplayShareOption',
-					order = 999,
-					args = {
-						import = {
-							type = "group",
-							name = "匯入",
-							order = 1,
-							args = {
-								stage0 = {
-									type = "group",
-									name = "",
-									inline = true,
-									order = 1,
-									args = {
-										guide = {
-											type = "description",
-											name = "選擇已儲存的樣式或將匯入字串貼上到提供的方框中。",
-											order = 1,
-											width = "full",
-											fontSize = "medium",
-										},
+                    childGroups = "tab",
+                    get = 'GetDisplayShareOption',
+                    set = 'SetDisplayShareOption',
+                    order = 999,
+                    args = {
+                        import = {
+                            type = "group",
+                            name = "匯入",
+                            order = 1,
+                            args = {
+                                stage0 = {
+                                    type = "group",
+                                    name = "",
+                                    inline = true,
+                                    order = 1,
+                                    args = {
+                                        guide = {
+                                            type = "description",
+                                            name = "選擇已儲存的樣式或將匯入字串貼上到提供的方框中。",
+                                            order = 1,
+                                            width = "full",
+                                            fontSize = "medium",
+                                        },
 
-										separator = {
-											type = "header",
-											name = "匯入字串",
-											order = 1.5,
-										},
+                                        separator = {
+                                            type = "header",
+                                            name = "匯入字串",
+                                            order = 1.5,
+                                        },
 
-										selectExisting = {
-											type = "select",
-											name = "選擇已儲存的樣式",
-											order = 2,
-											width = "full",
-											get = function()
-												return "0000000000"
-											end,
-											set = function( info, val )
-												local style = self.DB.global.styles[ val ]
+                                        selectExisting = {
+                                            type = "select",
+                                            name = "選擇已儲存的樣式",
+                                            order = 2,
+                                            width = "full",
+                                            get = function()
+                                                return "0000000000"
+                                            end,
+                                            set = function( info, val )
+                                                local style = self.DB.global.styles[ val ]
 
-												if style then shareDB.import = style.payload end
-											end,
-											values = function ()
-												local db = self.DB.global.styles
-												local values = {
-													["0000000000"] = "選擇已儲存的樣式"
-												}
+                                                if style then shareDB.import = style.payload end
+                                            end,
+                                            values = function ()
+                                                local db = self.DB.global.styles
+                                                local values = {
+                                                    ["0000000000"] = "選擇已儲存的樣式"
+                                                }
 
-												for k, v in pairs( db ) do
-													values[ k ] = k .. " (|cFF00FF00" .. v.date .. "|r)"
-												end
+                                                for k, v in pairs( db ) do
+                                                    values[ k ] = k .. " (|cFF00FF00" .. v.date .. "|r)"
+                                                end
 
-												return values
-											end,
-										},
+                                                return values
+                                            end,
+                                        },
 
-										importString = {
-											type = "input",
-											name = "匯入字串",
-											get = function () return shareDB.import end,
-											set = function( info, val )
-												val = val:trim()
-												shareDB.import = val
-											end,
-											order = 3,
-											multiline = 5,
-											width = "full",
-										},
+                                        importString = {
+                                            type = "input",
+                                            name = "匯入字串",
+                                            get = function () return shareDB.import end,
+                                            set = function( info, val )
+                                                val = val:trim()
+                                                shareDB.import = val
+                                            end,
+                                            order = 3,
+                                            multiline = 5,
+                                            width = "full",
+                                        },
 
-										btnSeparator = {
-											type = "header",
-											name = "匯入",
-											order = 4,
-										},
+                                        btnSeparator = {
+                                            type = "header",
+                                            name = "匯入",
+                                            order = 4,
+                                        },
 
-										importBtn = {
-											type = "execute",
-											name = "匯入樣式",
-											order = 5,
-											func = function ()
-												shareDB.imported, shareDB.error = DeserializeStyle( shareDB.import )
+                                        importBtn = {
+                                            type = "execute",
+                                            name = "匯入樣式",
+                                            order = 5,
+                                            func = function ()
+                                                shareDB.imported, shareDB.error = DeserializeStyle( shareDB.import )
 
-												if shareDB.error then
-													shareDB.import = "提供的匯入字串無法解壓縮。\n" .. shareDB.error
-													shareDB.error = nil
-													shareDB.imported = {}
-												else
-													shareDB.importStage = 1
-												end
-											end,
-											disabled = function ()
-												return shareDB.import == ""
-											end,
-										},
-									},
-									hidden = function () return shareDB.importStage ~= 0 end,
-								},
+                                                if shareDB.error then
+                                                    shareDB.import = "提供的匯入字串無法解壓縮。\n" .. shareDB.error
+                                                    shareDB.error = nil
+                                                    shareDB.imported = {}
+                                                else
+                                                    shareDB.importStage = 1
+                                                end
+                                            end,
+                                            disabled = function ()
+                                                return shareDB.import == ""
+                                            end,
+                                        },
+                                    },
+                                    hidden = function () return shareDB.importStage ~= 0 end,
+                                },
 
-								stage1 = {
-									type = "group",
-									inline = true,
-									name = "",
-									order = 1,
-									args = {
-										guide = {
-											type = "description",
-											name = function ()
-												local creates, replaces = {}, {}
+                                stage1 = {
+                                    type = "group",
+                                    inline = true,
+                                    name = "",
+                                    order = 1,
+                                    args = {
+                                        guide = {
+                                            type = "description",
+                                            name = function ()
+                                                local creates, replaces = {}, {}
 
-												for k, v in pairs( shareDB.imported ) do
-													if rawget( self.DB.profile.displays, k ) then
-														insert( replaces, k )
-													else
-														insert( creates, k )
-													end
-												end
+                                                for k, v in pairs( shareDB.imported ) do
+                                                    if rawget( self.DB.profile.displays, k ) then
+                                                        insert( replaces, k )
+                                                    else
+                                                        insert( creates, k )
+                                                    end
+                                                end
 
-												local o = ""
+                                                local o = ""
 
-												if #creates > 0 then
-													o = o .. "匯入的樣式將會建立以下技能組:  "
-													for i, display in orderedPairs( creates ) do
-														if i == 1 then o = o .. display
-														else o = o .. "、" .. display end
-													end
-													o = o .. "。\n"
-												end
+                                                if #creates > 0 then
+                                                    o = o .. "匯入的樣式將會建立以下技能組:  "
+                                                    for i, display in orderedPairs( creates ) do
+                                                        if i == 1 then o = o .. display
+                                                        else o = o .. "、" .. display end
+                                                    end
+                                                    o = o .. "。\n"
+                                                end
 
-												if #replaces > 0 then
-													o = o .. "匯入的樣式將會覆蓋以下技能組:  "
-													for i, display in orderedPairs( replaces ) do
-														if i == 1 then o = o .. display
-														else o = o .. "、" .. display end
-													end
-													o = o .. "。"
-												end
+                                                if #replaces > 0 then
+                                                    o = o .. "匯入的樣式將會覆蓋以下技能組:  "
+                                                    for i, display in orderedPairs( replaces ) do
+                                                        if i == 1 then o = o .. display
+                                                        else o = o .. "、" .. display end
+                                                    end
+                                                    o = o .. "。"
+                                                end
 
-												return o
-											end,
-											order = 1,
-											width = "full",
-											fontSize = "medium",
-										},
+                                                return o
+                                            end,
+                                            order = 1,
+                                            width = "full",
+                                            fontSize = "medium",
+                                        },
 
-										separator = {
-											type = "header",
-											name = "套用變更",
-											order = 2,
-										},
+                                        separator = {
+                                            type = "header",
+                                            name = "套用變更",
+                                            order = 2,
+                                        },
 
-										apply = {
-											type = "execute",
-											name = "套用變更",
-											order = 3,
-											confirm = true,
-											func = function ()
-												for k, v in pairs( shareDB.imported ) do
-													if type( v ) == "table" then self.DB.profile.displays[ k ] = v end
-												end
+                                        apply = {
+                                            type = "execute",
+                                            name = "套用變更",
+                                            order = 3,
+                                            confirm = true,
+                                            func = function ()
+                                                for k, v in pairs( shareDB.imported ) do
+                                                    if type( v ) == "table" then self.DB.profile.displays[ k ] = v end
+                                                end
 
-												shareDB.import = ""
-												shareDB.imported = {}
-												shareDB.importStage = 2
+                                                shareDB.import = ""
+                                                shareDB.imported = {}
+                                                shareDB.importStage = 2
 
-												self:EmbedDisplayOptions()
-												QueueRebuildUI()
-											end,
-										},
+                                                self:EmbedDisplayOptions()
+                                                QueueRebuildUI()
+                                            end,
+                                        },
 
-										reset = {
-											type = "execute",
-											name = "重置",
-											order = 4,
-											func = function ()
-												shareDB.import = ""
-												shareDB.imported = {}
-												shareDB.importStage = 0
-											end,
-										},
-									},
-									hidden = function () return shareDB.importStage ~= 1 end,
-								},
+                                        reset = {
+                                            type = "execute",
+                                            name = "重置",
+                                            order = 4,
+                                            func = function ()
+                                                shareDB.import = ""
+                                                shareDB.imported = {}
+                                                shareDB.importStage = 0
+                                            end,
+                                        },
+                                    },
+                                    hidden = function () return shareDB.importStage ~= 1 end,
+                                },
 
-								stage2 = {
-									type = "group",
-									inline = true,
-									name = "",
-									order = 3,
-									args = {
-										note = {
-											type = "description",
-											name = "已成功套用匯入的設定！\n\n如果需要，請點 '重置' 以重新開始。",
-											order = 1,
-											fontSize = "medium",
-											width = "full",
-										},
+                                stage2 = {
+                                    type = "group",
+                                    inline = true,
+                                    name = "",
+                                    order = 3,
+                                    args = {
+                                        note = {
+                                            type = "description",
+                                            name = "已成功套用匯入的設定！\n\n如果需要，請點 '重置' 以重新開始。",
+                                            order = 1,
+                                            fontSize = "medium",
+                                            width = "full",
+                                        },
 
-										reset = {
-											type = "execute",
-											name = "重置",
-											order = 2,
-											func = function ()
-												shareDB.import = ""
-												shareDB.imported = {}
-												shareDB.importStage = 0
-											end,
-										}
-									},
-									hidden = function () return shareDB.importStage ~= 2 end,
-								}
-							},
-							plugins = {
-							}
-						},
+                                        reset = {
+                                            type = "execute",
+                                            name = "重置",
+                                            order = 2,
+                                            func = function ()
+                                                shareDB.import = ""
+                                                shareDB.imported = {}
+                                                shareDB.importStage = 0
+                                            end,
+                                        }
+                                    },
+                                    hidden = function () return shareDB.importStage ~= 2 end,
+                                }
+                            },
+                            plugins = {
+                            }
+                        },
 
-						export = {
-							type = "group",
-							name = "匯出",
-							order = 2,
-							args = {
-								stage0 = {
-									type = "group",
-									name = "",
-									inline = true,
-									order = 1,
-									args = {
-										guide = {
-											type = "description",
-											name = "選擇要匯出的技能組樣式設定，然後點 '匯出樣式' 以產生匯出字串。",
-											order = 1,
-											fontSize = "medium",
-											width = "full",
-										},
+                        export = {
+                            type = "group",
+                            name = "匯出",
+                            order = 2,
+                            args = {
+                                stage0 = {
+                                    type = "group",
+                                    name = "",
+                                    inline = true,
+                                    order = 1,
+                                    args = {
+                                        guide = {
+                                            type = "description",
+                                            name = "選擇要匯出的技能組樣式設定，然後點 '匯出樣式' 以產生匯出字串。",
+                                            order = 1,
+                                            fontSize = "medium",
+                                            width = "full",
+                                        },
 
-										displays = {
-											type = "header",
-											name = "技能組",
-											order = 2,
-										},
+                                        displays = {
+                                            type = "header",
+                                            name = "技能組",
+                                            order = 2,
+                                        },
 
-										exportHeader = {
-											type = "header",
-											name = "匯出",
-											order = 1000,
-										},
+                                        exportHeader = {
+                                            type = "header",
+                                            name = "匯出",
+                                            order = 1000,
+                                        },
 
-										exportBtn = {
-											type = "execute",
-											name = "匯出樣式",
-											order = 1001,
-											func = function ()
-												local disps = {}
-												for key, share in pairs( shareDB.displays ) do
-													if share then insert( disps, key ) end
-												end
+                                        exportBtn = {
+                                            type = "execute",
+                                            name = "匯出樣式",
+                                            order = 1001,
+                                            func = function ()
+                                                local disps = {}
+                                                for key, share in pairs( shareDB.displays ) do
+                                                    if share then insert( disps, key ) end
+                                                end
 
-												shareDB.export = SerializeStyle( unpack( disps ) )
-												shareDB.exportStage = 1
-											end,
-											disabled = function ()
-												local hasDisplay = false
+                                                shareDB.export = SerializeStyle( unpack( disps ) )
+                                                shareDB.exportStage = 1
+                                            end,
+                                            disabled = function ()
+                                                local hasDisplay = false
 
-												for key, value in pairs( shareDB.displays ) do
-													if value then hasDisplay = true; break end
-												end
+                                                for key, value in pairs( shareDB.displays ) do
+                                                    if value then hasDisplay = true
+break end
+                                                end
 
-												return not hasDisplay
-											end,
-										},
-									},
-									plugins = {
-										displays = {}
-									},
-									hidden = function ()
-										local plugins = self.Options.args.displays.args.shareDisplays.args.export.args.stage0.plugins.displays
-										wipe( plugins )
+                                                return not hasDisplay
+                                            end,
+                                        },
+                                    },
+                                    plugins = {
+                                        displays = {}
+                                    },
+                                    hidden = function ()
+                                        local plugins = self.Options.args.displays.args.shareDisplays.args.export.args.stage0.plugins.displays
+                                        wipe( plugins )
 
-										local i = 1
-										for dispName, display in pairs( self.DB.profile.displays ) do
-											local pos = 20 + ( display.builtIn and display.order or i )
-											plugins[ dispName ] = {
-												type = "toggle",
-												name = function ()
-													if display.builtIn then return "|cFF00B4FF" .. dispName .. "|r" end
-													return dispName
-												end,
-												order = pos,
-												width = "full"
-											}
-											i = i + 1
-										end
+                                        local i = 1
+                                        for dispName, display in pairs( self.DB.profile.displays ) do
+                                            local pos = 20 + ( display.builtIn and display.order or i )
+                                            plugins[ dispName ] = {
+                                                type = "toggle",
+                                                name = function ()
+                                                    if display.builtIn then return "|cFF00B4FF" .. dispName .. "|r" end
+                                                    return dispName
+                                                end,
+                                                order = pos,
+                                                width = "full"
+                                            }
+                                            i = i + 1
+                                        end
 
-										return shareDB.exportStage ~= 0
-									end,
-								},
+                                        return shareDB.exportStage ~= 0
+                                    end,
+                                },
 
-								stage1 = {
-									type = "group",
-									name = "",
-									inline = true,
-									order = 1,
-									args = {
-										exportString = {
-											type = "input",
-											name = "樣式字串",
-											order = 1,
-											multiline = 8,
-											get = function () return shareDB.export end,
-											set = function () end,
-											width = "full",
-											hidden = function () return shareDB.export == "" end,
-										},
+                                stage1 = {
+                                    type = "group",
+                                    name = "",
+                                    inline = true,
+                                    order = 1,
+                                    args = {
+                                        exportString = {
+                                            type = "input",
+                                            name = "樣式字串",
+                                            order = 1,
+                                            multiline = 8,
+                                            get = function () return shareDB.export end,
+                                            set = function () end,
+                                            width = "full",
+                                            hidden = function () return shareDB.export == "" end,
+                                        },
 
-										instructions = {
-											type = "description",
-											name = "你可以複製上述字串以分享你選擇的技能組樣式設定，或" ..
-												"使用以下選項來儲存這些設定 (以便日後檢索)。",
-											order = 2,
-											width = "full",
-											fontSize = "medium"
-										},
+                                        instructions = {
+                                            type = "description",
+                                            name = "你可以複製上述字串以分享你選擇的技能組樣式設定，或" ..
+												"使用以下選項來儲存這些設定 (以便日後使用)。",
+                                            order = 2,
+                                            width = "full",
+                                            fontSize = "medium"
+                                        },
 
-										store = {
-											type = "group",
-											inline = true,
-											name = "",
-											order = 3,
-											hidden = function () return shareDB.export == "" end,
-											args = {
-												separator = {
-													type = "header",
-													name = "儲存樣式",
-													order = 1,
-												},
+                                        store = {
+                                            type = "group",
+                                            inline = true,
+                                            name = "",
+                                            order = 3,
+                                            hidden = function () return shareDB.export == "" end,
+                                            args = {
+                                                separator = {
+                                                    type = "header",
+                                                    name = "儲存樣式",
+                                                    order = 1,
+                                                },
 
-												exportName = {
-													type = "input",
-													name = "樣式名稱",
-													get = function () return shareDB.styleName end,
-													set = function( info, val )
-														val = val:trim()
-														shareDB.styleName = val
-													end,
-													order = 2,
-													width = "double",
-												},
+                                                exportName = {
+                                                    type = "input",
+                                                    name = "樣式名稱",
+                                                    get = function () return shareDB.styleName end,
+                                                    set = function( info, val )
+                                                        val = val:trim()
+                                                        shareDB.styleName = val
+                                                    end,
+                                                    order = 2,
+                                                    width = "double",
+                                                },
 
-												storeStyle = {
-													type = "execute",
-													name = "儲存匯出字串",
-													desc = "通過儲存匯出字串，可以儲存這些技能組設定，並在你對設定進行更改後稍後檢索它們。\n\n" ..
-														"儲存的樣式可以從你的任何角色中檢索，即使使用的是不同的設定檔。",
-													order = 3,
-													confirm = function ()
-														if shareDB.styleName and self.DB.global.styles[ shareDB.styleName ] ~= nil then
-															return "已存在名稱為 '" .. shareDB.styleName .. "' 的樣式 -- 是否要覆蓋它?"
-														end
-														return false
-													end,
-													func = function ()
-														local db = self.DB.global.styles
-														db[ shareDB.styleName ] = {
-															date = tonumber( date("%Y%m%d.%H%M%S") ),
-															payload = shareDB.export,
-														}
-														shareDB.styleName = ""
-													end,
-													disabled = function ()
-														return shareDB.export == "" or shareDB.styleName == ""
-													end,
-												}
-											}
-										},
+                                                storeStyle = {
+                                                    type = "execute",
+                                                    name = "儲存匯出字串",
+													desc = "通過儲存匯出字串，可以儲存這些技能組設定，並在你對設定進行更改後稍後使用它們。\n\n" ..
+														"儲存的樣式可以從你的任何角色中使用，即使用的是不同的設定檔。",
+                                                    order = 3,
+                                                    confirm = function ()
+                                                        if shareDB.styleName and self.DB.global.styles[ shareDB.styleName ] ~= nil then
+                                                            return "已存在名稱為 '" .. shareDB.styleName .. "' 的樣式 -- 是否要覆蓋它?"
+                                                        end
+                                                        return false
+                                                    end,
+                                                    func = function ()
+                                                        local db = self.DB.global.styles
+                                                        db[ shareDB.styleName ] = {
+                                                            date = tonumber( date("%Y%m%d.%H%M%S") ),
+                                                            payload = shareDB.export,
+                                                        }
+                                                        shareDB.styleName = ""
+                                                    end,
+                                                    disabled = function ()
+                                                        return shareDB.export == "" or shareDB.styleName == ""
+                                                    end,
+                                                }
+                                            }
+                                        },
 
 
-										restart = {
-											type = "execute",
-											name = "重新開始",
-											order = 4,
-											func = function ()
-												shareDB.styleName = ""
-												shareDB.export = ""
-												wipe( shareDB.displays )
-												shareDB.exportStage = 0
-											end,
-										}
-									},
-									hidden = function () return shareDB.exportStage ~= 1 end
-								}
-							},
-							plugins = {
-								displays = {}
-							},
-						}
-					}
-				},
-			},
-			plugins = {},
-		}
-		db.args.displays = section
-		wipe( section.plugins )
+                                        restart = {
+                                            type = "execute",
+                                            name = "重新開始",
+                                            order = 4,
+                                            func = function ()
+                                                shareDB.styleName = ""
+                                                shareDB.export = ""
+                                                wipe( shareDB.displays )
+                                                shareDB.exportStage = 0
+                                            end,
+                                        }
+                                    },
+                                    hidden = function () return shareDB.exportStage ~= 1 end
+                                }
+                            },
+                            plugins = {
+                                displays = {}
+                            },
+                        }
+                    }
+                },
+            },
+            plugins = {},
+        }
+        db.args.displays = section
+        wipe( section.plugins )
 
-		local i = 1
+        local i = 1
 
-		for name, data in pairs( self.DB.profile.displays ) do
-			local pos = data.builtIn and data.order or i
-			section.plugins[ name ] = newDisplayOption( db, name, data, pos )
-			if not data.builtIn then i = i + 1 end
-		end
+        for name, data in pairs( self.DB.profile.displays ) do
+            local pos = data.builtIn and data.order or i
+            section.plugins[ name ] = newDisplayOption( db, name, data, pos )
+            if not data.builtIn then i = i + 1 end
+        end
 
-		section.plugins[ "Multi" ] = newDisplayOption( db, "Multi", self.DB.profile.displays[ "Primary" ], 0 )
-		MakeMultiDisplayOption( section.plugins, section.plugins.Multi.Multi.args )
-	end
+        section.plugins[ "Multi" ] = newDisplayOption( db, "Multi", self.DB.profile.displays[ "Primary" ], 0 )
+        MakeMultiDisplayOption( section.plugins, section.plugins.Multi.Multi.args )
+    end
 end
 
 
@@ -4193,7 +4226,8 @@ do
         self.DB.profile.specs[ spec ] = self.DB.profile.specs[ spec ] or {}
         self.DB.profile.specs[ spec ][ option ] = val
 
-        if option == "package" then self:UpdateUseItems(); self:ForceUpdate( "SPEC_PACKAGE_CHANGED" )
+        if option == "package" then self:UpdateUseItems()
+self:ForceUpdate( "SPEC_PACKAGE_CHANGED" )
         elseif option == "enabled" then ns.StartConfiguration() end
 
 
@@ -4592,7 +4626,8 @@ do
 
                             if detected then
                                 for page, text in pairs( detected.upper ) do
-                                    if found == false then output = output .. "\n"; found = true end
+                                    if found == false then output = output .. "\n"
+found = true end
                                     output = format( "%s\n|cFFFFD100%s|r 在快捷列頁面 |cFFFFD100%d 上偵測到。", output, text, page )
                                 end
                             end
@@ -5295,13 +5330,13 @@ do
                     args = {
 						core = {
 							type = "group",
-							name = "核心",
+							name = "專精設定",
 							desc = "核心功能和" .. specs[ id ] .. "專精的選項。",
 							order = 1,
 							args = {
 								enabled = {
 									type = "toggle",
-									name = "啟用",
+									name = "啟用"..specs[ id ],
 									desc = "勾選時，插件將會根據選定的優先順序列表為 " .. name .. " 提供優先順序建議。",
 									order = 0,
 									width = "full",
@@ -5323,7 +5358,7 @@ do
 									name = "優先順序",
 									desc = "插件在提出優先順序建議時將會使用選定的分享。",
 									order = 1,
-									width = 2.85,
+									width = 1.5,
 									values = function( info, val )
 										wipe( packs )
 
@@ -5363,8 +5398,8 @@ do
                                     type = "select",
                                     name = "藥水",
                                     desc = "除非有在優先順序中特別指定，否則會推薦使用所選的藥水。",
-                                    order = 1.2,
-                                    width = 3,
+                                    order = 3,
+                                    width = 1.5,
                                     values = class.potionList,
                                     get = function()
                                         local p = self.DB.profile.specs[ id ].potion or class.specs[ id ].options.potion or "default"
@@ -5376,7 +5411,7 @@ do
                                 blankLine1 = {
                                     type = 'description',
                                     name = '',
-                                    order = 1.2,
+                                    order = 2,
                                     width = 'full'
                                 },
                             },
@@ -5394,8 +5429,10 @@ do
 								targetsHeader = {
 									type = "description",
 									name = "這些設定控制產生技能建議時如何計算目標數量。\n\n預設情況下，目標數量"
-										.. "會顯示在主要和多目標技能組中主圖示的右下角，除非只偵測到單一目標。\n\n",
+										.. "會顯示在主要和多目標技能組中主圖示的右下角，除非只偵測到單一目標。\n\n"
+                                        .. "你在遊戲內真實的目標會永遠計算在內。 \n\n|cFFFF0000警告:|r 目前不支援行動目標系統的 '軟' 目標。\n\n",
 									width = "full",
+									fontSize = "medium",
 									order = 0.01
 								},
 								yourTarget = {
@@ -5429,10 +5466,10 @@ do
 									args = {
 										damagePets = {
 											type = "toggle",
-											name = "被僕從傷害的敵人",
+											name = "包含被你的寵物和僕從傷害的敵人",
 											desc = "勾選時，插件將會計算在過去幾秒鐘內你的寵物或僕從擊中 (或擊中你) 的敵人。  "
 												.. "如果你的寵物/僕從分散在戰場上，可能會導致目標計數錯誤。",
-											order = 1,
+											order = 2,
 											width = "full",
 										},
 
@@ -5446,13 +5483,13 @@ do
 											min = 1,
 											max = 10,
 											step = 0.1,
-											order = 2,
-											width = "full",
+											order = 1,
+											width = 1.5,
 										},
 
 										damageDots = {
 											type = "toggle",
-											name = "帶有 DOT / 減益的敵人",
+											name = "包含帶有你的 DOT / 減益的敵人",
 											desc = "勾選時，帶有你的減益或持續傷害效果的敵人將會被計算為目標，無論它們在戰場上的位置如何。\n\n"
 												.. "這對於近戰專精可能不理想，因為敵人在你施加 DOT/出血後可能會走開。如果已啟用|cFFFFD100計算名條|r，"
 												.. "則不再在範圍內的敵人將會被過濾掉。\n\n"
@@ -5475,19 +5512,112 @@ do
 								},
 								nameplates = {
 									type = "toggle",
-									name = "計算名條",
-									desc = "勾選時，指定半徑內的敵方名條將會被計算為敵方目標。\n\n"
+									name = "計算你附近的名條",
+									desc = "勾選時，距離你的角色特定範圍內的敵方名條將會被計算為敵方目標。\n\n"
 										.. AtlasToString( "common-icon-checkmark" ) .. " 建議用於使用 10 碼或更短範圍的近戰專精\n\n"
 										.. AtlasToString( "common-icon-redx" ) .. " 不建議用於遠程專精。",
 									width = "full",
 									order = 0.1,
 								},
+								
+								petbased = {
+											type = "toggle",
+											name = "計算你寵物附近的目標",
+											desc = function ()
+												local msg = "勾選並正確設定時，當你的目標也在你的寵物範圍內時，插件將會將你寵物附近的目標計算為有效目標。"
+
+												if Hekili:HasPetBasedTargetSpell() then
+													local spell = Hekili:GetPetBasedTargetSpell()
+													local link = Hekili:GetSpellLinkWithTexture( spell )
+
+													msg = msg .. "\n\n" .. link .. "|w|r 在你的快捷列上，將會用於你所有的" .. UnitClass( "player" ) .. "寵物。"
+												else
+													msg = msg .. "\n\n|cFFFF0000需要寵物技能在你的其中一個快捷列上。|r"
+												end
+
+												if GetCVar( "nameplateShowEnemies" ) == "1" then
+													msg = msg .. "\n\n敵方名條已|cFF00FF00啟用|r，將會用於偵測你寵物附近的目標。"
+												else
+													msg = msg .. "\n\n|cFFFF0000需要顯示敵方名條。|r"
+												end
+
+												return msg
+											end,
+											width = "full",
+											hidden = function ()
+												return Hekili:GetPetBasedTargetSpells() == nil
+											end,
+											order = 0.2
+										},
+
+										petbasedGuidance = {
+											type = "description",
+											name = function ()
+												local out
+
+												if not self:HasPetBasedTargetSpell() then
+													out = "為了使依據寵物的偵測正常工作，必須從你的|cFF00FF00寵物法術書|r中選擇一個技能，並將其放置在|cFF00FF00你的|r 其中一個快捷列上。\n\n"
+													local spells = Hekili:GetPetBasedTargetSpells()
+
+													if not spells then return " " end
+
+													out = out .. "對於 %s，由於其範圍，建議使用 %s。它將會適用於你所有的寵物。"
+
+													if spells.count > 1 then
+														out = out .. "\n替代方案: "
+													end
+
+													local n = 1
+
+													local link = Hekili:GetSpellLinkWithTexture( spells.best )
+													out = format( out, UnitClass( "player" ), link )
+													for spell in pairs( spells ) do
+														if type( spell ) == "number" and spell ~= spells.best then
+															n = n + 1
+
+															link = Hekili:GetSpellLinkWithTexture( spell )
+
+															if n == 2 and spells.count == 2 then
+																out = out .. link .. "。"
+															elseif n ~= spells.count then
+																out = out .. link .. "，"
+															else
+																out = out .. "和 " .. link .. "。"
+															end
+														end
+													end
+												end
+
+												if GetCVar( "nameplateShowEnemies" ) ~= "1" then
+													if not out then
+														out = "|cFFFF0000警告！|r依據寵物的目標偵測需要啟用|cFFFFD100敵方名條|r。"
+													else
+														out = out .. "\n\n|cFFFF0000警告！|r依據寵物的目標偵測需要啟用|cFFFFD100敵方名條|r。"
+													end
+												end
+
+												return out
+											end,
+											fontSize = "medium",
+											width = "full",
+											disabled = function ( info, val )
+												if Hekili:GetPetBasedTargetSpells() == nil then return true end
+												if self.DB.profile.specs[ id ].petbased == false then return true end
+												if self:HasPetBasedTargetSpell() and GetCVar( "nameplateShowEnemies" ) == "1" then return true end
+
+												return false
+											end,
+											order = 0.21,
+                                    hidden = function ()
+                                        return not self.DB.profile.specs[ id ].petbased
+                                    end
+                                },
 
 								npGroup = {
 									type = "group",
 									inline = true,
 									name = "名條偵測",
-									order = 0.2,
+									order = 0.11,
 									hidden = function ()
 										return not self.DB.profile.specs[ id ].nameplates
 									end,
@@ -5560,7 +5690,7 @@ do
 											desc = "如果啟用 |cFFFFD100計算名條|r，則此範圍內的敵人將會包含在目標計數中。\n\n"
 												.. "只有在同時啟用 |cFFFFD100顯示敵方名條|r 和 |cFFFFD100顯示所有名條|r 時，此設定才可用。",
 											width = "full",
-											order = 1.7,
+											order = 0.1,
 											min = 0,
 											max = 100,
 											step = 1,
@@ -5627,97 +5757,6 @@ do
 												return self.DB.profile.specs[ id ].nameplates == false
 											end,
 										}, ]]
-
-										-- 依據寵物的集群檢測
-										petbased = {
-											type = "toggle",
-											name = "計算你寵物附近的目標",
-											desc = function ()
-												local msg = "勾選並正確設定時，當你的目標也在你的寵物範圍內時，插件將會將你寵物附近的目標計算為有效目標。"
-
-												if Hekili:HasPetBasedTargetSpell() then
-													local spell = Hekili:GetPetBasedTargetSpell()
-													local link = Hekili:GetSpellLinkWithTexture( spell )
-
-													msg = msg .. "\n\n" .. link .. "|w|r 在你的快捷列上，將會用於你所有的" .. UnitClass( "player" ) .. "寵物。"
-												else
-													msg = msg .. "\n\n|cFFFF0000需要寵物技能在你的其中一個快捷列上。|r"
-												end
-
-												if GetCVar( "nameplateShowEnemies" ) == "1" then
-													msg = msg .. "\n\n敵方名條已|cFF00FF00啟用|r，將會用於偵測你寵物附近的目標。"
-												else
-													msg = msg .. "\n\n|cFFFF0000需要顯示敵方名條。|r"
-												end
-
-												return msg
-											end,
-											width = "full",
-											hidden = function ()
-												return Hekili:GetPetBasedTargetSpells() == nil
-											end,
-											order = 3.1
-										},
-
-										petbasedGuidance = {
-											type = "description",
-											name = function ()
-												local out
-
-												if not self:HasPetBasedTargetSpell() then
-													out = "為了使依據寵物的偵測正常工作，必須從你的|cFF00FF00寵物法術書|r中選擇一個技能，並將其放置在|cFF00FF00你的|r 其中一個快捷列上。\n\n"
-													local spells = Hekili:GetPetBasedTargetSpells()
-
-													if not spells then return " " end
-
-													out = out .. "對於 %s，由於其範圍，建議使用 %s。它將會適用於你所有的寵物。"
-
-													if spells.count > 1 then
-														out = out .. "\n替代方案: "
-													end
-
-													local n = 1
-
-													local link = Hekili:GetSpellLinkWithTexture( spells.best )
-													out = format( out, UnitClass( "player" ), link )
-													for spell in pairs( spells ) do
-														if type( spell ) == "number" and spell ~= spells.best then
-															n = n + 1
-
-															link = Hekili:GetSpellLinkWithTexture( spell )
-
-															if n == 2 and spells.count == 2 then
-																out = out .. link .. "。"
-															elseif n ~= spells.count then
-																out = out .. link .. "，"
-															else
-																out = out .. "和 " .. link .. "。"
-															end
-														end
-													end
-												end
-
-												if GetCVar( "nameplateShowEnemies" ) ~= "1" then
-													if not out then
-														out = "|cFFFF0000警告！|r依據寵物的目標偵測需要啟用|cFFFFD100敵方名條|r。"
-													else
-														out = out .. "\n\n|cFFFF0000警告！|r依據寵物的目標偵測需要啟用|cFFFFD100敵方名條|r。"
-													end
-												end
-
-												return out
-											end,
-											fontSize = "medium",
-											width = "full",
-											disabled = function ( info, val )
-												if Hekili:GetPetBasedTargetSpells() == nil then return true end
-												if self.DB.profile.specs[ id ].petbased == false then return true end
-												if self:HasPetBasedTargetSpell() and GetCVar( "nameplateShowEnemies" ) == "1" then return true end
-
-												return false
-											end,
-											order = 3.11,
-										}
 									}
 								},
 
@@ -5737,7 +5776,7 @@ do
 
 								cycle = {
 									type = "toggle",
-									name = "建議更改目標 |TInterface\\Addons\\Hekili\\Textures\\Cycle:0|t",
+									name = "允許切換目標 |TInterface\\Addons\\Hekili\\Textures\\Cycle:0|t",
 									desc = "啟用換目標時，可能會顯示一個圖示 (|TInterface\\Addons\\Hekili\\Textures\\Cycle:0|t) ，表示你應該在其他目標上使用技能。\n\n" ..
 										"這對於一些只想將減益效果施加到另一個目標的專精 (例如御風武僧) 來說效果很好，但對於關注" ..
 										"依據持續時間維護 DOT/減益效果的專精 (例如痛苦術士) 來說效果可能較差。\n\n此功能將在未來的更新中進行改進。",
@@ -5768,8 +5807,8 @@ do
 
 								aoe = {
 									type = "range",
-									name = "多目標技能組: 最小目標數",
-									desc = "顯示多目標技能組 (或主要技能組處於多目標模式) 時，其建議將會假設至少有這麼多目標可用。",
+									name = "用於偵測多目標建議的最低目標數量",
+									desc = "當多目標技能組顯示時 (或已啟用多目標模式時)，其建議將假設至少有這麼多目標可用。\n\n這在使用雙技能組模式時非常有用，可以確保在通常不會更改的情況下顯示多目標優先順序，例如，直到 5 個目標。\n\n使用 5 的設定將確保在多目標模式下遵循正確的優先順序。不同的專精和配裝，最佳值可能有所不同。",
 									width = "full",
 									min = 2,
 									max = 10,
@@ -5916,7 +5955,7 @@ do
 
                     options.args.core.plugins.settings.prefHeader = {
                         type = "header",
-                        name = "偏好設定",
+                        name = specs[ id ] .. "偏好設定",
                         order = 100.1,
                     }
 
@@ -6759,7 +6798,8 @@ do
                                             for pId, pData in pairs( Hekili.DB.profile.packs ) do
                                                 if pData.builtIn and pData.spec == specId then
                                                     defPack = pId
-                                                    if spec.package == pack then spec.package = pId; break end
+                                                    if spec.package == pack then spec.package = pId
+break end
                                                 end
                                             end
                                         end
@@ -6972,7 +7012,8 @@ do
                                             if Hekili.Scripts and Hekili.Scripts.DB then
                                                 local scriptHead = "^" .. pack .. ":" .. k .. ":"
                                                 for k, v in pairs( Hekili.Scripts.DB ) do
-                                                    if k:match( scriptHead ) and v.Error then err = true; break end
+                                                    if k:match( scriptHead ) and v.Error then err = true
+break end
                                                 end
                                             end
 
@@ -7285,7 +7326,8 @@ do
 
                                         remove( p.lists[ packControl.listName ], id )
 
-                                        if not p.lists[ packControl.listName ][ id ] then id = id - 1; packControl.actionID = format( "%04d", id ) end
+                                        if not p.lists[ packControl.listName ][ id ] then id = id - 1
+packControl.actionID = format( "%04d", id ) end
                                         if not p.lists[ packControl.listName ][ id ] then packControl.actionID = "zzzzzzzzzz" end
 
                                         self:LoadScripts()
@@ -7588,7 +7630,8 @@ do
                                                         for_next = {
                                                             type = "toggle",
                                                             name = function ()
-                                                                local n = packControl.actionID; n = tonumber( n ) + 1
+                                                                local n = packControl.actionID
+n = tonumber( n ) + 1
                                                                 local e = Hekili.DB.profile.packs[ pack ].lists[ packControl.listName ][ n ]
 
                                                                 local ability = e and e.action and class.abilities[ e.action ]
@@ -8388,16 +8431,16 @@ do
                             args = {
                                 key = {
                                     type = "keybinding",
-                                    name = "專注單體迴圈",
-                                    desc = "替支援專注單體迴圈的專精設定按鈕來切換開啟或關閉專注單體迴圈。",
+                                    name = "專注單體優先順序",
+                                    desc = "替支援專注單體優先順序的專精設定按鈕來切換開啟或關閉專注單體迴圈。",
                                     width = 1,
                                     order = 1,
                                         },
 
                                 value = {
                                     type = "toggle",
-                                    name = "啟用專注單體迴圈",
-                                    desc = "啟用時，專注單體專精的迴圈會稍微變化，在 AoE 中使用單體目標。\n\n",
+                                    name = "啟用專注單體優先順序",
+                                    desc = "啟用時，專注單體專精的優先順序會稍微變化，在 多目標中使用單體目標。\n\n",
                                     width = 2,
                                     order = 2,
                                         },
@@ -9715,7 +9758,8 @@ function Hekili:GenerateProfile()
     local covenants = { "kyrian", "necrolord", "night_fae", "venthyr" }
     local covenant = "none"
     for i, v in ipairs( covenants ) do
-        if state.covenant[ v ] then covenant = v; break end
+        if state.covenant[ v ] then covenant = v
+break end
     end
 
     local conduits
@@ -10021,7 +10065,7 @@ do
 						args = {
 							gettingStarted_displays_info = {
 								type = "description",
-								name = "|cFFFFD100技能組|r 是 Hekili 向你顯示推薦施放的法術和物品的地方，|cFF00CCFF主要|r 技能組是你的 DPS 迴圈。當此選項視窗打開時，所有技能組都可見。\n" ..
+								name = "|cFFFFD100技能組|r 是 Hekili 向你顯示推薦施放的法術和物品的地方，|cFF00CCFF主要|r 技能組是你的 DPS 優先順序。當此選項視窗打開時，所有技能組都可見。\n" ..
 									"\n|cFFFFD100技能組|r 可以通過以下方式移動:\n" ..
 									"· 點擊並拖曳它們\n" ..
 									"  - 你可以通過點擊最上方的 |cFFFFD100Hekili " .. Hekili.Version .. " |r 標題並將其拖曳到一邊來移開此視窗。\n" ..
@@ -11040,7 +11084,8 @@ do
                                 if type( v ) == "function" then
                                     local ok, val = pcall( v )
                                     if not ok then
-                                        if not keyNamed then results = format( "%s - 光環: %s\n", results, k ); keyNamed = true end
+                                        if not keyNamed then results = format( "%s - 光環: %s\n", results, k )
+keyNamed = true end
                                         results = format( "%s    - %s = %s\n", results, tostring( val ) )
                                         count = count + 1
                                     end
@@ -11050,7 +11095,8 @@ do
                                 if type( v ) == "function" then
                                     local ok, val = pcall( v )
                                     if not ok then
-                                        if not keyNamed then results = format( "%s - 光環: %s\n", results, k ); keyNamed = true end
+                                        if not keyNamed then results = format( "%s - 光環: %s\n", results, k )
+keyNamed = true end
                                         results = format( "%s    - %s = %s\n", results, tostring( val ) )
                                         count = count + 1
                                     end
@@ -11067,7 +11113,8 @@ do
                                 if type( v ) == "function" then
                                     local ok, val = pcall( v )
                                     if not ok then
-                                        if not keyNamed then results = format( "%s - 技能: %s\n", results, k ); keyNamed = true end
+                                        if not keyNamed then results = format( "%s - 技能: %s\n", results, k )
+keyNamed = true end
                                         results = format( "%s    - %s = %s\n", results, tostring( val ) )
                                         count = count + 1
                                     end
@@ -11077,7 +11124,8 @@ do
                                 if type( v ) == "function" then
                                     local ok, val = pcall( v )
                                     if not ok then
-                                        if not keyNamed then results = format( "%s - 技能: %s\n", results, k ); keyNamed = true end
+                                        if not keyNamed then results = format( "%s - 技能: %s\n", results, k )
+keyNamed = true end
                                         results = format( "%s    - %s = %s\n", results, tostring( val ) )
                                         count = count + 1
                                     end
@@ -11147,29 +11195,29 @@ local B64tobyte = {
 
 -- This code is based on the Encode7Bit algorithm from LibCompress
 -- Credit goes to Galmok (galmok@gmail.com)
-local encodeB64Table = {};
+local encodeB64Table = {}
 
 local function encodeB64(str)
-    local B64 = encodeB64Table;
-    local remainder = 0;
-    local remainder_length = 0;
-    local encoded_size = 0;
+    local B64 = encodeB64Table
+    local remainder = 0
+    local remainder_length = 0
+    local encoded_size = 0
     local l=#str
     local code
     for i=1,l do
-        code = string.byte(str, i);
-        remainder = remainder + bit_lshift(code, remainder_length);
-        remainder_length = remainder_length + 8;
+        code = string.byte(str, i)
+        remainder = remainder + bit_lshift(code, remainder_length)
+        remainder_length = remainder_length + 8
         while(remainder_length) >= 6 do
-            encoded_size = encoded_size + 1;
-            B64[encoded_size] = bytetoB64[bit_band(remainder, 63)];
-            remainder = bit_rshift(remainder, 6);
-            remainder_length = remainder_length - 6;
+            encoded_size = encoded_size + 1
+            B64[encoded_size] = bytetoB64[bit_band(remainder, 63)]
+            remainder = bit_rshift(remainder, 6)
+            remainder_length = remainder_length - 6
         end
     end
     if remainder_length > 0 then
-        encoded_size = encoded_size + 1;
-        B64[encoded_size] = bytetoB64[remainder];
+        encoded_size = encoded_size + 1
+        B64[encoded_size] = bytetoB64[remainder]
     end
     return table.concat(B64, "", 1, encoded_size)
 end
@@ -11177,27 +11225,27 @@ end
 local decodeB64Table = {}
 
 local function decodeB64(str)
-    local bit8 = decodeB64Table;
-    local decoded_size = 0;
-    local ch;
-    local i = 1;
-    local bitfield_len = 0;
-    local bitfield = 0;
-    local l = #str;
+    local bit8 = decodeB64Table
+    local decoded_size = 0
+    local ch
+    local i = 1
+    local bitfield_len = 0
+    local bitfield = 0
+    local l = #str
     while true do
         if bitfield_len >= 8 then
-            decoded_size = decoded_size + 1;
-            bit8[decoded_size] = string_char(bit_band(bitfield, 255));
-            bitfield = bit_rshift(bitfield, 8);
-            bitfield_len = bitfield_len - 8;
+            decoded_size = decoded_size + 1
+            bit8[decoded_size] = string_char(bit_band(bitfield, 255))
+            bitfield = bit_rshift(bitfield, 8)
+            bitfield_len = bitfield_len - 8
         end
-        ch = B64tobyte[str:sub(i, i)];
-        bitfield = bitfield + bit_lshift(ch or 0, bitfield_len);
-        bitfield_len = bitfield_len + 6;
+        ch = B64tobyte[str:sub(i, i)]
+        bitfield = bitfield + bit_lshift(ch or 0, bitfield_len)
+        bitfield_len = bitfield_len + 6
         if i > l then
-            break;
+            break
         end
-        i = i + 1;
+        i = i + 1
     end
     return table.concat(bit8, "", 1, decoded_size)
 end
@@ -11240,11 +11288,11 @@ StringToTable = function( inString, fromChat )
         decoded = fromChat and decodeB64(inString) or Encoder:Decode(inString)
         if not decoded then return "無法解碼。" end
 
-        decompressed, errorMsg = Compresser:Decompress(decoded);
+        decompressed, errorMsg = Compresser:Decompress(decoded)
         if not decompressed then return "無法解壓縮已解碼的字串: " .. errorMsg end
     end
 
-    local success, deserialized = Serializer:Deserialize(decompressed);
+    local success, deserialized = Serializer:Deserialize(decompressed)
     if not success then return "無法反序列化已解壓縮的字串: " .. deserialized end
 
     return deserialized
@@ -11701,7 +11749,8 @@ do
             if result.use_off_gcd then result.use_off_gcd = tonumber( result.use_off_gcd ) end
             if result.use_while_casting then result.use_while_casting = tonumber( result.use_while_casting ) end
             if result.strict then result.strict = tonumber( result.strict ) end
-            if result.moving then result.enable_moving = true; result.moving = tonumber( result.moving ) end
+            if result.moving then result.enable_moving = true
+result.moving = tonumber( result.moving ) end
 
             if result.target_if and not result.criteria then
                 result.criteria = result.target_if

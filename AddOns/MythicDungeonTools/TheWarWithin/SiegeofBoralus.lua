@@ -4,6 +4,8 @@ local L = MDT.L
 local dungeonIndex = 19
 MDT.dungeonList[dungeonIndex] = L["Siege of Boralus"]
 
+local englishFaction = UnitFactionGroup("player")
+
 MDT.mapInfo[dungeonIndex] = {
   viewportPositionOverrides = {
     [2] = {
@@ -11,7 +13,9 @@ MDT.mapInfo[dungeonIndex] = {
       horizontalPan = 499.11205542634,
       verticalPan = 38.703272826513
     }
-  }
+  },
+  teleportId = englishFaction == "Horde" and 464256 or 445418,
+  shortName = L["siegeOfBoralusShortName"]
 }
 
 local zones = { 895, 1162 }
@@ -345,6 +349,7 @@ MDT.dungeonEnemies[dungeonIndex] = {
       [10] = {
         ["x"] = 732.18266203007,
         ["y"] = -276.63364455167,
+        ["g"] = 49,
         ["sublevel"] = 1,
       },
       [11] = {
@@ -474,7 +479,7 @@ MDT.dungeonEnemies[dungeonIndex] = {
     ["count"] = 6,
     ["health"] = 15913070,
     ["scale"] = 1.1,
-    ["displayId"] = 79077,
+    ["displayId"] = 84327,
     ["creatureType"] = "Humanoid",
     ["level"] = 80,
     ["characteristics"] = {
@@ -609,6 +614,7 @@ MDT.dungeonEnemies[dungeonIndex] = {
     ["level"] = 80,
     ["characteristics"] = {
       ["Taunt"] = true,
+      ["Slow"] = true,
       ["Mind Soothe"] = true,
     },
     ["spells"] = {
@@ -639,6 +645,7 @@ MDT.dungeonEnemies[dungeonIndex] = {
       [4] = {
         ["x"] = 727.05914341708,
         ["y"] = -285.73307413136,
+        ["g"] = 49,
         ["sublevel"] = 1,
         ["patrol"] = {
           [1] = {
@@ -1009,6 +1016,7 @@ MDT.dungeonEnemies[dungeonIndex] = {
     ["level"] = 80,
     ["characteristics"] = {
       ["Taunt"] = true,
+      ["Slow"] = true,
       ["Mind Soothe"] = true,
     },
     ["spells"] = {
@@ -1091,6 +1099,7 @@ MDT.dungeonEnemies[dungeonIndex] = {
     ["level"] = 80,
     ["characteristics"] = {
       ["Taunt"] = true,
+      ["Slow"] = true,
       ["Mind Soothe"] = true,
     },
     ["spells"] = {
@@ -1225,6 +1234,7 @@ MDT.dungeonEnemies[dungeonIndex] = {
     ["level"] = 80,
     ["characteristics"] = {
       ["Taunt"] = true,
+      ["Slow"] = true,
       ["Mind Soothe"] = true,
     },
     ["spells"] = {
@@ -1316,6 +1326,12 @@ MDT.dungeonEnemies[dungeonIndex] = {
         ["x"] = 228.67338160671,
         ["y"] = -218.66836590709,
         ["g"] = 35,
+        ["sublevel"] = 1,
+      },
+      [8] = {
+        ["x"] = 178.33116309012,
+        ["y"] = -218.07437419044,
+        ["g"] = 36,
         ["sublevel"] = 1,
       },
     },
@@ -1417,6 +1433,18 @@ MDT.dungeonEnemies[dungeonIndex] = {
         ["g"] = 36,
         ["sublevel"] = 1,
       },
+      [12] = {
+        ["x"] = 177.15417937729,
+        ["y"] = -204.83384617887,
+        ["g"] = 36,
+        ["sublevel"] = 1,
+      },
+      [13] = {
+        ["x"] = 185.39276231585,
+        ["y"] = -200.71457154577,
+        ["g"] = 36,
+        ["sublevel"] = 1,
+      },
     },
   },
   [17] = {
@@ -1484,6 +1512,48 @@ MDT.dungeonEnemies[dungeonIndex] = {
         ["x"] = 234.34467621956,
         ["y"] = -246.05259291181,
         ["sublevel"] = 1,
+        ["patrol"] = {
+          [1] = {
+            ["x"] = 234.34467621956,
+            ["y"] = -246.05259291181,
+          },
+          [2] = {
+            ["x"] = 225.45526261494,
+            ["y"] = -242.20758076813,
+          },
+          [3] = {
+            ["x"] = 219.81007184823,
+            ["y"] = -237.93091694369,
+          },
+          [4] = {
+            ["x"] = 218.09943764158,
+            ["y"] = -232.79893601593,
+          },
+          [5] = {
+            ["x"] = 219.81007184823,
+            ["y"] = -237.93091694369,
+          },
+          [6] = {
+            ["x"] = 225.45526261494,
+            ["y"] = -242.20758076813,
+          },
+          [7] = {
+            ["x"] = 234.34467621956,
+            ["y"] = -246.05259291181,
+          },
+          [8] = {
+            ["x"] = 240.33801513624,
+            ["y"] = -249.22128868864,
+          },
+          [9] = {
+            ["x"] = 246.49637658799,
+            ["y"] = -251.78726936405,
+          },
+          [10] = {
+            ["x"] = 240.33801513624,
+            ["y"] = -249.22128868864,
+          },
+        },
       },
     },
   },
@@ -1712,7 +1782,7 @@ MDT.dungeonEnemies[dungeonIndex] = {
     ["count"] = 6,
     ["health"] = 15913070,
     ["scale"] = 1,
-    ["displayId"] = 79077,
+    ["displayId"] = 84327,
     ["creatureType"] = "Humanoid",
     ["level"] = 80,
     ["characteristics"] = {
@@ -2062,26 +2132,31 @@ MDT.dungeonEnemies[dungeonIndex] = {
       [32] = {
         ["x"] = 317.71192357736,
         ["y"] = -230.07291450627,
+        ["g"] = 29,
         ["sublevel"] = 1,
       },
       [33] = {
         ["x"] = 319.43010617788,
         ["y"] = -241.6493382827,
+        ["g"] = 29,
         ["sublevel"] = 1,
       },
       [34] = {
         ["x"] = 369.83834662197,
         ["y"] = -218.21621314032,
+        ["g"] = 29,
         ["sublevel"] = 1,
       },
       [35] = {
         ["x"] = 362.67417000256,
         ["y"] = -211.18679873201,
+        ["g"] = 29,
         ["sublevel"] = 1,
       },
       [36] = {
         ["x"] = 371.07501097629,
         ["y"] = -227.9512629476,
+        ["g"] = 29,
         ["sublevel"] = 1,
       },
       [37] = {
@@ -2208,6 +2283,7 @@ MDT.dungeonEnemies[dungeonIndex] = {
       [12] = {
         ["x"] = 721.51516158075,
         ["y"] = -276.20409264196,
+        ["g"] = 49,
         ["sublevel"] = 1,
       },
     },
@@ -2244,6 +2320,8 @@ MDT.dungeonEnemies[dungeonIndex] = {
       [280389] = {
       },
       [463182] = {
+      },
+      [471578] = {
       },
     },
     ["clones"] = {

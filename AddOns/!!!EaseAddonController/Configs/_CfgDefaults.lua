@@ -1995,6 +1995,12 @@ D["PremadeGroupsFilter"] = {
 	desc = "提供進階的過濾方式來篩選隊伍。`",
 	modifier = "彩虹ui",
 	icon = "Interface\\Icons\\ability_dualwieldspecialization",
+	{
+        text = "設定選項",
+        callback = function() 
+			Settings.OpenToCategory("PremadeGroupsFilter")
+		end,
+    },
 };
 D["PremakeGroupsHelper"] = {
     defaultEnable = 0,
@@ -2613,7 +2619,7 @@ D["VCB"] = {
 	modifier = "彩虹ui",
     {
         text = "設定選項",
-        callback = function() SlashCmdList["VOODOOCASTINGBAR"]("") end,
+        callback = function() SlashCmdList["VCB"]("") end,
     },
 };
 D["VuhDo"] = {
